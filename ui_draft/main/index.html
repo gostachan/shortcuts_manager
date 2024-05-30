@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>競合除外設定</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>競合させたくない環境を選択</h2>
+            <ul>
+                <li><input type="checkbox" checked> VSCode</li>
+                <li><input type="checkbox"> iterm</li>
+                <li><input type="checkbox"> chrome</li>
+                <li><input type="checkbox" checked> macOS</li>
+                <li><button>+</button></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="search-bar">
+                <input type="text" placeholder="検索バー">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>favorite</th>
+                        <th>command</th>
+                        <th>keybinding</th>
+                        <th>when</th>
+                        <th>Environment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>❤️</td>
+                        <td>右のウィンドウに移動</td>
+                        <td>ctrl .</td>
+                        <td>ウィンドウにカーソルがあるとき</td>
+                        <td>VSCode</td>
+                    </tr>
+                    <tr>
+                        <td>❤️</td>
+                        <td>左のウィンドウに移動</td>
+                        <td>ctrl ,</td>
+                        <td>ウィンドウにカーソルがあるとき</td>
+                        <td>VSCode</td>
+                    </tr>
+                    <tr>
+                        <td>♡</td>
+                        <td>ターミナルを開く</td>
+                        <td>ctrl k & ctrl o</td>
+                        <td>ターミナル以外にカーソルがある時</td>
+                        <td>VSCode</td>
+                    </tr>
+                    <tr>
+                        <td>♡</td>
+                        <td>ターミナルを閉じる</td>
+                        <td>ctrl k & ctrl o</td>
+                        <td>ターミナルにカーソルがある時</td>
+                        <td>VSCode</td>
+                    </tr>
+                    <tr>
+                        <td>❤️</td>
+                        <td>右のウィンドウに移動</td>
+                        <td>ctrl .</td>
+                        <td>-</td>
+                        <td>chrome</td>
+                    </tr>
+                    <tr>
+                        <td>❤️</td>
+                        <td>左のウィンドウに移動</td>
+                        <td>ctrl ,</td>
+                        <td>-</td>
+                        <td>chrome</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -84,6 +84,8 @@ tmuxなどの場合，初期状態で全てのキーにショートカットが�
 # 画面図
 [figma](https://www.figma.com/board/jjMGHVcHFyKo6RE1qIp98p/keyboard-manager?node-id=0-1&t=iNUAdEzjnmch7nV6-0)
 
+# DB
+![ER図](ui_img/ERDiagram.jpg)
 デフォルトショートカットが初めから登録されている機能を追加するならEnvironmentテーブルが必要
 
 # 参考ページ

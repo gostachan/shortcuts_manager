@@ -82,17 +82,7 @@ tmuxなどの場合，初期状態で全てのキーにショートカットが�
 * すでにショートカットを多用している人が，ショートカットを登録するのが大変
 
 # 画面図
-### login form
-![login](ui_img/login0-0-1.jpg)
-
-### main
-![main](ui_img/main0-0-1.jpg)
-
-### modal
-![main](ui_img/modal0-0-1.jpg)
-
-# DB
-![ER図](ui_img/ERDiagram.jpg)
+[figma](https://www.figma.com/board/jjMGHVcHFyKo6RE1qIp98p/keyboard-manager?node-id=0-1&t=iNUAdEzjnmch7nV6-0)
 
 デフォルトショートカットが初めから登録されている機能を追加するならEnvironmentテーブルが必要
 

@@ -1,4 +1,4 @@
-button {
+.basic-button {
   display: inline-block;
   width: 100%;
   margin-top: 10px;
@@ -9,6 +9,6 @@ button {
   height: 30px;
 }
 
-button:hover {
+.basic-button:hover {
   background-color: #007bff;
 }

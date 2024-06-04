@@ -50,31 +50,4 @@ body .main .main-container {
   width: 90%;
   margin: 0 auto;
   height: 100%;
-}
-body .main .main-container .shortcut-table-area {
-  margin-top: 80px;
-  height: 100%;
-}
-body .main .main-container .shortcut-table-area .record {
-  height: 50px;
-  line-height: 50px;
-}
-body .main .main-container .shortcut-table-area .column-1 {
-  width: 20%;
-  border-right: 1px solid lightgray;
-}
-body .main .main-container .shortcut-table-area .column-2 {
-  width: 20%;
-  border-right: 1px solid lightgray;
-}
-body .main .main-container .shortcut-table-area .column-3 {
-  width: 20%;
-  border-right: 1px solid lightgray;
-}
-body .main .main-container .shortcut-table-area .column-4 {
-  width: 20%;
-  border-right: 1px solid lightgray;
-}
-body .main .main-container .shortcut-table-area .column-5 {
-  width: 20%;
 }/*# sourceMappingURL=page.css.map */

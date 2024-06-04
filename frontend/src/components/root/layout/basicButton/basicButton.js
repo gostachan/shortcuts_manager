@@ -4,6 +4,6 @@ export default function BasicButton({props}) {
 
 
   return (
-    <button className={props.className}>{props.value}</button>
+    <button className={"basic-button " + props.className}>{props.value}</button>
   );
 }

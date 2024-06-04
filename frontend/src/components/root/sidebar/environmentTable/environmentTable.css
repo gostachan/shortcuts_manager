@@ -1,0 +1,39 @@
+.side-bar-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.side-bar-container .environment-table-area {
+  margin-top: 80px;
+  width: 100%;
+  height: 575px;
+}
+.side-bar-container .environment-table-area h3 {
+  display: flex;
+  justify-content: center;
+}
+.side-bar-container .environment-table-area .environment-table {
+  margin-top: 25px;
+}
+.side-bar-container .environment-table-area .environment-table .record {
+  height: 40px;
+  line-height: 40px;
+}
+.side-bar-container .environment-table-area .environment-table .record .column-1 {
+  width: 30%;
+  border-right: 1px solid lightgray;
+}
+.side-bar-container .environment-table-area .environment-table .record .column-2 {
+  width: 70%;
+}
+.side-bar-container .environment-table-area .environment-table .record-title {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  line-height: 50px;
+}
+.side-bar-container .environment-table-area .create-shortcut {
+  margin-top: 50px;
+}
+.side-bar-container .logout {
+  margin-top: 80px;
+}/*# sourceMappingURL=environmentTable.css.map */

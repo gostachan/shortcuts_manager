@@ -402,18 +402,6 @@ body .side-bar .side-bar-container {
   width: 80%;
   margin: 0 auto;
 }
-body .side-bar .side-bar-container button {
-  display: inline-block;
-  width: 100%;
-  margin-top: 10px;
-  background-color: #00BFFF;
-  color: white;
-  font-size: 18px;
-  border-radius: 5px;
-}
-body .side-bar .side-bar-container button:hover {
-  background-color: #007bff;
-}
 body .side-bar .side-bar-container .environment-table-area {
   margin-top: 80px;
   width: 100%;

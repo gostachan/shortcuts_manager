@@ -3,6 +3,12 @@
   background-color: #DDFFFF;
   height: 100vh;
 }
+.side-bar .create-shortcut-modal {
+  display: none;
+}
+.side-bar .create-group-modal {
+  display: none;
+}
 .side-bar .env-switch {
   margin-top: 0;
   border-radius: none;

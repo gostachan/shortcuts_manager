@@ -3,6 +3,13 @@
   background-color: #DDFFFF;
   height: 100vh;
 
+  .create-shortcut-modal {
+    display: none;
+  } 
+
+  .create-group-modal {
+    display: none;
+  } 
   .env-switch {
     margin-top: 0;
     border-radius: none;

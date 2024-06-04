@@ -1,0 +1,14 @@
+button {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  background-color: #00BFFF;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  height: 30px;
+}
+
+button:hover {
+  background-color: #007bff;
+}/*# sourceMappingURL=basicButton.css.map */

@@ -12,7 +12,10 @@ export default function BasicButton({props}) {
   }
 
   return (
-    <button className={`basic-button ${props.className} ${props.modal ? "modal" : ""} ${clicked? "modal-on" : "modal-off"}`}
+    <button className={`basic-button 
+                        ${props.className} 
+                        ${props.modal ? "modal" : ""} 
+                        ${clicked? "modal-on" : "modal-off"}`}
             onClick={toggleClicked}>
       {props.value}
     </button>

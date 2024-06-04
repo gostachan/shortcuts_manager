@@ -3,4 +3,34 @@
   background-color: #DDFFFF;
   height: 100vh;
 
+  .env-switch {
+    margin-top: 0;
+    border-radius: none;
+  }
+
+  .side-bar-container {
+    width: 80%;
+    margin: 0 auto;
+    
+    .env-buttons {
+      margin-top: 80px;
+      height: 80;
+      max-height: 360px;
+    }
+  }
+
+  .create-shortcut {
+    position: relative;
+    top: 15vh;
+  }
+
+  .create-group {
+    position: relative;
+    top: 15vh;
+  }
+
+  .logout {
+    position: relative;
+    top: 20vh;
+  }
 }

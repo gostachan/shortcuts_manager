@@ -2,13 +2,21 @@
   display: inline-block;
   width: 100%;
   margin-top: 10px;
-  background-color: #00BFFF;
   color: white;
   font-size: 18px;
   border-radius: 5px;
   height: 30px;
+  border: 2px solid #007bff;
 }
 
 .basic-button:hover {
+  background-color: #0040ff;
+}
+
+.modal-off {
   background-color: #007bff;
+}
+
+.modal-on {
+  background-color: #0040ff;
 }

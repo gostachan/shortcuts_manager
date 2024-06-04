@@ -1,0 +1,10 @@
+#createShortcutModal {
+  display: none;
+  position: absolute;
+  top: 150px;
+  left: 110px;
+  margin: 0 auto;
+  height: 500px;
+  width: 80%;
+  background-color: gray;
+}/*# sourceMappingURL=createShortcut.css.map */

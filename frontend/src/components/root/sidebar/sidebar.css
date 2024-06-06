@@ -2,4 +2,24 @@
   width: 20%;
   background-color: #DDFFFF;
   height: 100vh;
+}
+.side-bar .display-none {
+  display: none;
+}
+.side-bar .env-switch {
+  margin-top: 0;
+  border-radius: none;
+}
+.side-bar .side-bar-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.side-bar .side-bar-container .env-buttons {
+  margin-top: 80px;
+  height: 80;
+  max-height: 360px;
+}
+.side-bar .logout {
+  position: relative;
+  top: 300px;
 }/*# sourceMappingURL=sidebar.css.map */

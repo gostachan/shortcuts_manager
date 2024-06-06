@@ -29,10 +29,8 @@ body {
     border-radius: 0px 0px 5px 5px;
   }
 
-
-
-
   .main {
+    position: relative;
     width: 80%;
     background-color: #EEFFFF;
     height: 100vh;
@@ -42,34 +40,8 @@ body {
       margin: 0 auto;
       height: 100%;
 
-      .shortcut-table-area {
-        margin-top: 80px;
-        height: 100%;
-        .record {
-          height: 50px;
-          line-height: 50px;
-        }
-        .column-1 {
-          width: 20%;
-          border-right: 1px solid lightgray;
-        }
-        .column-2 {
-          width: 20%;
-          border-right: 1px solid lightgray;
-        }
-        .column-3 {
-          width: 20%;
-          border-right: 1px solid lightgray;
-        }
-        .column-4 {
-          width: 20%;
-          border-right: 1px solid lightgray;
-        }
-        .column-5 {
-          width: 20%;
-        }
-      }
     }
+
   }
 }
 

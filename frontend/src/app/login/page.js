@@ -1,39 +1,59 @@
+"use client";
+import { useState } from "react";
 import "./page.css";
 
 export default function Login() {
+  const [form, setForm] = useState({email:    "",
+                                    password: ""})
+
+  function handleForm(element) {
+    setForm({
+      ...form,
+      [element.target.name]: element.target.value
+    });
+  };
+
+  function handleClick() {
+    console.log(form);
+  }
 
   return (
     <div className="container">
       <div className="login-form">
         <div className="content">
-          <form action="/login" method="post">
+          <form>
             <h1 className="form-title">log in</h1>
             <div className="form-group">
               <input
-                type="text"
-                id="email"
-                name="email"
-                required=""
+                type=       "text"
+                id=         "email"
+                name=       "email"
                 placeholder="email"
+                required
+                onChange={handleForm}
+                value=   {form.email}
               />
             </div>
             <div className="form-group">
               <input
-                type="password"
-                id="password"
-                name="password"
-                required=""
+                type=       "password"
+                id=         "password"
+                name=       "password"
                 placeholder="password"
+                required
+                onChange={handleForm}
+                value=   {form.password}
               />
             </div>
-            <div className="forget-pass">
-              <a href="#">パスワードを忘れた</a>
-            </div>
-            <div className="form-button form-group">
-              <button type="submit">log in</button>
-            </div>
+            <div className="forgot-pass">
+            <a href="#">パスワードを忘れた</a>
+          </div>
           </form>
         </div>
+        <button className="form-button" 
+                onClick={handleClick}>
+          submit
+        </button>
       </div>
     </div>
   )

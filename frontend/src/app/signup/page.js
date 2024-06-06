@@ -1,45 +1,68 @@
+"use client";
+import { useState } from "react"
 import "./page.css"
 
 export default function Signup() {
+  const [form, setForm] = useState({email:                "",
+                                    password:             "",
+                                    passwordConfirmation: ""})
+
+  function handleForm(element) {
+    setForm({
+      ...form,
+      [element.target.name]: element.target.value
+    })
+  }
+
+  function handleClick() {
+    console.log(form);
+  }
 
   return (
     <div className="container">
       <div className="login-form">
         <div className="content">
-          <form action="/signup" method="post">
-            <h1 className="form-title">log in</h1>
+          <form>
+            <h1 className="form-title">sign up</h1>
             <div className="form-group">
               <input
-                type="text"
-                id="email"
-                name="email"
-                required=""
+                type=       "text"
+                id=         "email"
+                name=       "email"
                 placeholder="email"
+                required
+                onChange={handleForm}
+                value=   {form.value}
               />
             </div>
             <div className="form-group">
               <input
-                type="password"
-                id="password"
-                name="password"
-                required=""
+                type=       "password"
+                id=         "password"
+                name=       "password"
                 placeholder="password"
+                required
+                onChange={handleForm}
+                value=   {form.value}
               />
             </div>
             <div className="form-group">
               <input
-                type="password"
-                id="password-confirmation"
-                name="password-confirmation"
-                required=""
+                type=       "password"
+                id=         "password-confirmation"
+                name=       "passwordConfirmation"
                 placeholder="password confirmation"
+                required
+                onChange={handleForm}
+                value=   {form.value}
               />
-            </div>
-            <div className="form-button form-group">
-              <button type="submit">sign up</button>
             </div>
           </form>
         </div>
+        <button className="form-button" 
+                onClick={handleClick}>
+          submit
+        </button>
       </div>
     </div>
 

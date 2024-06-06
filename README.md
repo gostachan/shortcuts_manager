@@ -92,11 +92,13 @@ tmuxなどの場合，初期状態で全てのキーにショートカットが�
 
 # 進捗
 #### お気に入り登録
-![favorite](ui_img/favorite.gif)
+<img src="ui_img/favorite.gif" width="100%">
+
 #### 表示環境切り替えボタン
-![environment](ui_img/environment.gif)
+<img src="ui_img/environment.gif" width="100%">
+
 #### モーダルのトグル
-![modal](ui_img/modal.gif)
+<img src="ui_img/modal.gif" width="100%">
 
 # 参考ページ
 [リアルタイムでキーボードの動作を反映させる機能を利用しているアプリ](https://www.onlinemictest.com/ja/keyboard-test/)

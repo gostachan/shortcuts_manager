@@ -3,13 +3,10 @@
   background-color: #DDFFFF;
   height: 100vh;
 
-  .create-shortcut-modal {
+  .display-none {
     display: none;
-  } 
+  }
 
-  .create-group-modal {
-    display: none;
-  } 
   .env-switch {
     margin-top: 0;
     border-radius: none;
@@ -26,18 +23,17 @@
     }
   }
 
-  .create-shortcut {
-    position: relative;
-    top: 15vh;
-  }
-
-  .create-group {
-    position: relative;
-    top: 15vh;
-  }
+  // .create-shortcut {
+  //   position: relative;
+  //   top: 200px;
+  // }
+  // .create-group {
+  //   position: relative;
+  //   top: 200px;
+  // }
 
   .logout {
     position: relative;
-    top: 20vh;
+    top: 300px;
   }
 }

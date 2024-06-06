@@ -1,58 +1,82 @@
-import BasicButton from "../layout/basicButton/basicButton";
-import EnvButton from "../layout/envButton/envButton";
-import CreateGroup from "../main/modals/createGroup/createGroup";
-import CreateShortcut from "../main/modals/createShortcut/createShortcut";
+"use client";
+
+import { useState } from "react";
+
 import "./sidebar.css";
 
+import Modal from "../main/modals/modal";
+import ToggleButton from "../layout/toggleButton/toggleButton";
+import BasicButton from "../layout/basicButton/basicButton";
+import EnvButton from "../layout/envButton/envButton";
+
 export default function Sidebar() {
+
+  const environments = ["VSCode", "vim", "OS", "chrome", "tmux"];
+
+  const [createShortcutClicked, setCreateShortcutClicked] = useState(false);
+  const [createGroupClicked, setCreateGroupClicked] = useState(false);
+
+
+  function toCreateShortcut() {
+    setCreateShortcutClicked(!createShortcutClicked);
+    setCreateGroupClicked(false);
+  }
+
+  function toCreateGroup() {
+    setCreateGroupClicked(!createGroupClicked);
+    setCreateShortcutClicked(false);
+  }
 
 
   return (
     <>
       <div className="side-bar">
-        <div className="create-shortcut-modal">
-          <CreateShortcut/>
-        </div>
-        <div className="create-group-modal">
-          <CreateGroup/>
+        <div className={`modal-area ${(createShortcutClicked || createGroupClicked) ? "" : "display-none"}`}>
+          <Modal modalType={{ createShortcut: createShortcutClicked,
+                              createGroup:   createGroupClicked 
+                            }}/>
         </div>
         <div className="side-bar-container">
-            <div className="env-buttons">
-            <EnvButton props={{value: "vim", 
-                                className: "first"}} />
-            <EnvButton props={{value: "ショートカットを作成", 
-                                className: ""}} />
-            <EnvButton props={{value: "ショートカットを作成", 
-                                className: ""}} />
-            <EnvButton props={{value: "ショートカットを作成", 
-                                className: ""}} />
-            <EnvButton props={{value: "ショートカットを作成", 
-                                className: ""}} />
+          <div className="env-buttons">
+            {environments.map((environment, index) => {
+              let classNameOption = "";
 
-            <EnvButton props={{value: "vim", 
-                                className: ""}} />
-            <EnvButton props={{value: "ショートカットを作成", 
-                                className: ""}} />
-            <EnvButton props={{value: "ショートカットを作成", 
-                                className: ""}} />
-            <EnvButton props={{value: "ショートカットを作成", 
-                                className: ""}} />
-            <EnvButton props={{value: "ショートカットを作成", 
-                                className: "last"}} />
+              if (index === 0) classNameOption = "first"; 
+              else if (index === environments.length - 1) classNameOption = "last";
 
+              return (
+                <EnvButton props={{
+                  value: environment,
+                  className: `${environment} ${classNameOption}`
+                }}
+                           key={environment.isbn} />
+              );
+            })}
           </div>
-          <BasicButton props={{value: "+", 
-                              className: ""}} />
+          <BasicButton props={{
+            value: "+",
+            className: ""
+          }} />
 
 
-          <BasicButton props={{value: "ショートカットを作成", 
-                               className: "create-shortcut",
-                               modal: true}} />
-          <BasicButton props={{value: "グループを作成", 
-                               className: "create-group",
-                               modal: true}} />
-          <BasicButton props={{value: "ログアウト", 
-                               className: "logout"}} />
+          <ToggleButton 
+          onUpdate={toCreateShortcut} 
+          props={{
+            value: "ショートカットを作成",
+            className: (createShortcutClicked) ? "clicked" : "non-clicked" 
+          }
+          } />
+          <ToggleButton 
+          onUpdate={toCreateGroup}
+          props={{
+            value: "グループを作成",
+            className: (createGroupClicked) ? "clicked" : "non-clicked" 
+          }} />
+
+          <BasicButton props={{
+            value: "ログアウト",
+            className: "logout"
+          }} />
         </div>
       </div>
     </>

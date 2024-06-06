@@ -1,22 +1,9 @@
-"use client";
 import "./basicButton.css"
-import { useState } from "react";
 
-export default function BasicButton({props}) {
-
-  const [clicked, setClicked] = useState(false);
-  function toggleClicked() {
-    if (props.modal) {
-      setClicked(!clicked);
-    }
-  }
+export default function BasicButton({props={modal: false}}) {
 
   return (
-    <button className={`basic-button 
-                        ${props.className} 
-                        ${props.modal ? "modal" : ""} 
-                        ${clicked? "modal-on" : "modal-off"}`}
-            onClick={toggleClicked}>
+    <button className={`basic-button ${props.className}`}>
       {props.value}
     </button>
   );

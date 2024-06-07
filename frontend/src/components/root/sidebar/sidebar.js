@@ -36,7 +36,7 @@ export default function Sidebar() {
                               createGroup:   createGroupClicked 
                             }}/>
         </div>
-        <div className="side-bar-container">
+        <div className="sidebar-container">
           <div className="env-buttons">
             {environments.map((environment, index) => {
               let classNameOption = "";
@@ -67,10 +67,12 @@ export default function Sidebar() {
             className={(createGroupClicked) ? "clicked" : "non-clicked"}/>
 
 
-          <BasicButton 
-            value={"ログアウト"}
-            className={"logout"}
-          />
+          <div className="logout">
+            <BasicButton 
+              value={"ログアウト"}
+              // className={"logout"}
+            />
+          </div>
         </div>
       </div>
     </>

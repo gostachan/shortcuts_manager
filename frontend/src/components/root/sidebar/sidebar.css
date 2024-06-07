@@ -10,16 +10,33 @@
   margin-top: 0;
   border-radius: none;
 }
-.side-bar .side-bar-container {
+.side-bar .sidebar-container {
   width: 80%;
   margin: 0 auto;
 }
-.side-bar .side-bar-container .env-buttons {
+.side-bar .sidebar-container .env-buttons {
+  z-index: -1;
   margin-top: 80px;
   height: 80;
   max-height: 360px;
+  overflow-y: auto;
 }
-.side-bar .logout {
-  position: relative;
-  top: 300px;
+.side-bar .sidebar-container .env-buttons::-webkit-scrollbar {
+  width: 10px;
+  height: 12px;
+}
+.side-bar .sidebar-container .env-buttons::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 10px;
+  border: 3px solid #DDFFFF;
+}
+.side-bar .sidebar-container .env-buttons::-webkit-scrollbar-track {
+  background-color: #DDFFFF;
+  border-radius: 10px;
+}
+.side-bar .sidebar-container .logout {
+  width: 16%;
+  position: absolute;
+  top: 700px;
+  z-index: 10;
 }/*# sourceMappingURL=sidebar.css.map */

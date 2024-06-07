@@ -1,4 +1,6 @@
+import GroupModal from "./groupModal/groupModal";
 import "./modal.css"
+import ShortcutModal from "./shortcutModal/shortcutModal";
 
 export default function Modal({modalType}) {
 
@@ -7,16 +9,14 @@ export default function Modal({modalType}) {
       {(() => {
         if (modalType.createShortcut) {
           return (
-            <h1>shortcut</h1>
+            <ShortcutModal/>
           );
         } else if (modalType.createGroup) {
           return (
-            <h1>group</h1>
+            <GroupModal/>
           );
         }
       }) () }
-      <div className="container">
-      </div>
     </div>
   );
 }

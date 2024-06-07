@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 import "./sidebar.css";
 
@@ -45,11 +45,12 @@ export default function Sidebar() {
               else if (index === environments.length - 1) classNameOption = "last";
 
               return (
-                <EnvButton props={{
-                  value: environment,
-                  className: `${environment} ${classNameOption}`
-                }}
-                           key={environment.isbn} />
+                <React.Fragment key={environment}>
+                  <EnvButton props={{
+                    value: environment,
+                    className: `${environment} ${classNameOption}`
+                  }} />
+                </React.Fragment>
               );
             })}
           </div>

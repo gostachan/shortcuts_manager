@@ -55,7 +55,6 @@ export default function Sidebar() {
           </div>
           <BasicButton 
             value={"+"}
-            className={""}
           />
 
           <ToggleButton 

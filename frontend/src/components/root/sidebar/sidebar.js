@@ -13,18 +13,18 @@ export default function Sidebar() {
 
   const environments = ["VSCode", "vim", "OS", "chrome", "tmux"];
 
-  const [createShortcutClicked, setCreateShortcutClicked] = useState(false);
-  const [createGroupClicked, setCreateGroupClicked] = useState(false);
+  const [createShortcutClicked, toggleShorcutModal] = useState(false);
+  const [createGroupClicked, toggleGroupModal] = useState(false);
 
 
-  function toCreateShortcut() {
-    setCreateShortcutClicked(!createShortcutClicked);
-    setCreateGroupClicked(false);
+  function handleToggleShortcut() {
+    toggleShorcutModal(!createShortcutClicked);
+    toggleGroupModal(false);
   }
 
-  function toCreateGroup() {
-    setCreateGroupClicked(!createGroupClicked);
-    setCreateShortcutClicked(false);
+  function handleToggleGroup() {
+    toggleGroupModal(!createGroupClicked);
+    toggleShorcutModal(false);
   }
 
 
@@ -58,11 +58,11 @@ export default function Sidebar() {
           />
 
           <ToggleButton 
-            onUpdate={toCreateShortcut} 
+            onToggle={handleToggleShortcut} 
             value={"ショートカットを作成"}
             className={(createShortcutClicked) ? "clicked" : "non-clicked"}/>
           <ToggleButton 
-            onUpdate={toCreateGroup}
+            onToggle={handleToggleGroup}
             value={"グループを作成"}
             className={(createGroupClicked) ? "clicked" : "non-clicked"}/>
 

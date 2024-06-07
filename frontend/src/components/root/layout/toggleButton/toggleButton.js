@@ -1,13 +1,10 @@
 import "./toggleButton.css"
 
-export default function ToggleButton({onUpdate, value, className}) {
-  function handleClick() {
-    onUpdate();
-  }
+export default function ToggleButton({onToggle, value, className}) {
 
   return (
     <button className={`toggle-button ${className}`}
-            onClick={handleClick}>
+            onClick={onToggle}>
       {value}
     </button>
   );

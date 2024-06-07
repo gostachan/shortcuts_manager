@@ -54,10 +54,10 @@ export default function Sidebar() {
               );
             })}
           </div>
-          <BasicButton props={{
-            value: "+",
-            className: ""
-          }} />
+          <BasicButton 
+            value={"+"}
+            className={""}
+          />
 
 
           <ToggleButton 
@@ -74,10 +74,10 @@ export default function Sidebar() {
             className: (createGroupClicked) ? "clicked" : "non-clicked" 
           }} />
 
-          <BasicButton props={{
-            value: "ログアウト",
-            className: "logout"
-          }} />
+          <BasicButton 
+            value={"ログアウト"}
+            className={"logout"}
+          />
         </div>
       </div>
     </>

@@ -1,22 +1,27 @@
-import GroupModal from "./groupModal/groupModal";
 import "./modal.css"
-import ShortcutModal from "./shortcutModal/shortcutModal";
+import ShortcutModalContainer from "./shortcutModalContainer/shortcutModalContainer";
+import GroupModalContainer from "./groupModalContainer/groupModal";
+
 
 export default function Modal({modalType}) {
 
   return (
-    <div id="modal">
+    <>
       {(() => {
         if (modalType.createShortcut) {
           return (
-            <ShortcutModal/>
+            <div className="shortcut-modal">
+              <ShortcutModalContainer/>
+            </div>
           );
         } else if (modalType.createGroup) {
           return (
-            <GroupModal/>
+            <div className="group-modal">
+              <GroupModalContainer/>
+            </div>
           );
         }
       }) () }
-    </div>
+    </>
   );
 }

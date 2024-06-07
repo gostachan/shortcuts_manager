@@ -1,14 +1,14 @@
 import "./toggleButton.css"
 
-export default function ToggleButton({props={modal: false}, onUpdate}) {
+export default function ToggleButton({onUpdate, value, className}) {
   function handleClick() {
     onUpdate();
   }
 
   return (
-    <button className={`toggle-button ${props.className}`}
+    <button className={`toggle-button ${className}`}
             onClick={handleClick}>
-      {props.value}
+      {value}
     </button>
   );
 }

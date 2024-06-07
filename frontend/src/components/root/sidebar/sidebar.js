@@ -46,10 +46,9 @@ export default function Sidebar() {
 
               return (
                 <React.Fragment key={environment}>
-                  <EnvButton props={{
-                    value: environment,
-                    className: `${environment} ${classNameOption}`
-                  }} />
+                  <EnvButton 
+                    value={environment}
+                    className={`${environment} ${classNameOption}`}/>
                 </React.Fragment>
               );
             })}
@@ -59,20 +58,15 @@ export default function Sidebar() {
             className={""}
           />
 
+          <ToggleButton 
+            onUpdate={toCreateShortcut} 
+            value={"ショートカットを作成"}
+            className={(createShortcutClicked) ? "clicked" : "non-clicked"}/>
+          <ToggleButton 
+            onUpdate={toCreateGroup}
+            value={"グループを作成"}
+            className={(createGroupClicked) ? "clicked" : "non-clicked"}/>
 
-          <ToggleButton 
-          onUpdate={toCreateShortcut} 
-          props={{
-            value: "ショートカットを作成",
-            className: (createShortcutClicked) ? "clicked" : "non-clicked" 
-          }
-          } />
-          <ToggleButton 
-          onUpdate={toCreateGroup}
-          props={{
-            value: "グループを作成",
-            className: (createGroupClicked) ? "clicked" : "non-clicked" 
-          }} />
 
           <BasicButton 
             value={"ログアウト"}

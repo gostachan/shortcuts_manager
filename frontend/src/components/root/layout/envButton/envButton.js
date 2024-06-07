@@ -2,7 +2,7 @@
 import "./envButton.css";
 import { useState } from "react";
 
-export default function EnvButton({props}) {
+export default function EnvButton({value, className}) {
   const [clicked, setClicked] = useState(false);
 
   function toggleClicked() {
@@ -10,9 +10,9 @@ export default function EnvButton({props}) {
   }
 
   return (
-    <button className={`env-button ${clicked ? "env-on" : "env-off"} ${props.className}`}
+    <button className={`env-button ${clicked ? "env-on" : "env-off"} ${className}`}
             onClick={toggleClicked}>
-      {props.value}
+      {value}
     </button>
   );
 } 

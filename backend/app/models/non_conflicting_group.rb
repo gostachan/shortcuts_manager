@@ -1,0 +1,2 @@
+class NonConflictingGroup < ApplicationRecord
+end

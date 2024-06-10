@@ -1,20 +1,31 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
+
+import axios from "axios";
+
 import "./shortcutTable.css";
 import ShortcutTableRecord from "./shortcutTableRecord/shortcutTableRecord";
 
 export default function ShortcutTable() {
-  let columns = ["favorite", "command", "keybinding", "when", "environment"]
-  let valueSets = [];
+  const columns = ["favorite", "command", "keybinding", "when", "environment"]
+  const [valueSets, setValueSets] = useState([]);
 
-  for (let i = 1; i <= 100; ++i) {
-    valueSets.push({favorite:   (i % 2 === 0 ? true : false),
-                    command:     `command${i}`,
-                    keybinding:  `keybinding${i}`,
-                    when:        `when${i}`,
-                    environment: `environment${i}`,
-                    id: i
-                    })
-  }
+  useEffect(() => {
+    axios.get("http://localhost:3000/shortcuts")
+    .then(function (response) {
+      // handle success
+      setValueSets(response.data);
+      console.log(valueSets.data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  }, [])
 
 
   return (

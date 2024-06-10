@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_10_081901) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_10_095619) do
   create_table "environments", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_10_081901) do
     t.integer "environment_id"
     t.string "command"
     t.string "key_binding"
-    t.string "where"
+    t.string "condition"
     t.boolean "favorite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

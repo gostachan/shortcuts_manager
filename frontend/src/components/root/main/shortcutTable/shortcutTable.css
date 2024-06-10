@@ -1,28 +1,6 @@
 .shortcut-table-area {
   margin-top: 80px;
   height: 100%;
+  max-height: 660px;
   overflow-y: auto;
-}
-.shortcut-table-area .record {
-  height: 50px;
-  line-height: 50px;
-}
-.shortcut-table-area .column-1 {
-  width: 20%;
-  border-right: 1px solid lightgray;
-}
-.shortcut-table-area .column-2 {
-  width: 20%;
-  border-right: 1px solid lightgray;
-}
-.shortcut-table-area .column-3 {
-  width: 20%;
-  border-right: 1px solid lightgray;
-}
-.shortcut-table-area .column-4 {
-  width: 20%;
-  border-right: 1px solid lightgray;
-}
-.shortcut-table-area .column-5 {
-  width: 20%;
 }/*# sourceMappingURL=shortcutTable.css.map */

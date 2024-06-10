@@ -1,4 +1,5 @@
 import FavoriteButton from './favoriteButton/favoriteButton';
+import "./shortcutTableRecord.css";
 
 export default function ShortcutTableRecord({value, className}) {
 

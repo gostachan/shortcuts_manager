@@ -1,6 +1,7 @@
 .shortcut-table-area {
   margin-top: 80px;
   height: 100%;
+  overflow-y: auto;
 }
 .shortcut-table-area .record {
   height: 50px;

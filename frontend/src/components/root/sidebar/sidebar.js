@@ -11,7 +11,13 @@ import EnvButton from "../layout/envButton/envButton";
 
 export default function Sidebar() {
 
-  const environments = ["VSCode", "vim", "OS", "chrome", "tmux"];
+  // let environments = ["VSCode", "vim", "OS", "chrome", "tmux"];
+
+  let environments = []; 
+  for (let i = 1; i <= 20; ++i) {
+    environments.push(`env ${i}`);
+  }
+
 
   const [createShortcutClicked, toggleShorcutModal] = useState(false);
   const [createGroupClicked, toggleGroupModal] = useState(false);

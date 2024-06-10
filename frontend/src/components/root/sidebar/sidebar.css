@@ -1,6 +1,6 @@
 .side-bar {
   width: 20%;
-  background-color: #DDFFFF;
+  background-color: rgb(24, 48, 82);
   height: 100vh;
 }
 .side-bar .display-none {
@@ -17,7 +17,6 @@
 .side-bar .sidebar-container .env-buttons {
   z-index: -1;
   margin-top: 80px;
-  height: 80;
   max-height: 360px;
   overflow-y: auto;
 }

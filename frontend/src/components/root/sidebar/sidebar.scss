@@ -1,6 +1,7 @@
 .side-bar {
   width: 20%;
-  background-color: #DDFFFF;
+  // background-color: #DDFFFF;
+  background-color: rgb(24,48,82);
   height: 100vh;
 
   .display-none {
@@ -19,7 +20,8 @@
     .env-buttons {
       z-index: -1;
       margin-top: 80px;
-      height: 80;
+      // TODO: 動作に問題が出なければ下を消す
+      // height: 80;
       max-height: 360px;
       overflow-y: auto;
     }

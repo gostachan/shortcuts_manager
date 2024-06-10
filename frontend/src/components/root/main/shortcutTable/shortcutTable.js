@@ -4,34 +4,18 @@ import ShortcutTableRecord from "./shortcutTableRecord/shortcutTableRecord";
 
 export default function ShortcutTable() {
   let columns = ["favorite", "command", "keybinding", "when", "environment"]
-  let valueSets = [{favorite:   true,
-                    command:    "command1",
-                    keybinding: "keybinding1",
-                    when:       "when1",
-                    environment: "environment1",
-                    id: 1
-                   },
-                   {favorite:   true,
-                    command:    "command2",
-                    keybinding: "keybinding2",
-                    when:       "when2",
-                    environment: "environment2",
-                    id: 2
-                   },
-                   {favorite:   false,
-                    command:    "command3",
-                    keybinding: "keybinding3",
-                    when:       "when3",
-                    environment: "environment3",
-                    id: 3 
-                   },
-                   {favorite:   false,
-                    command:    "command4",
-                    keybinding: "keybinding4",
-                    when:       "when4",
-                    environment: "environment4",
-                    id: 4 
-                   }]
+  let valueSets = [];
+
+  for (let i = 1; i <= 100; ++i) {
+    valueSets.push({favorite:   (i % 2 === 0 ? true : false),
+                    command:     `command${i}`,
+                    keybinding:  `keybinding${i}`,
+                    when:        `when${i}`,
+                    environment: `environment${i}`,
+                    id: i
+                    })
+  }
+
 
   return (
     <div className="shortcut-table">

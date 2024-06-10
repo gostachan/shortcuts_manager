@@ -22,19 +22,17 @@ export default function ShortcutTable() {
       <div className="record record-first">
         {columns.map((column, index) => {
           return (
-          <div className={`column-${index + 1}`}>
-            <h5>{column}</h5>
-          </div>
+          <React.Fragment key={index}>
+            <div className={`column-${index + 1}`}>
+              <h5>{column}</h5>
+            </div>
+          </React.Fragment>
           )
         })}
       </div>
       {valueSets.map((valueSet, index) => {
         return (
           <React.Fragment key={valueSet.id}>
-            {/* <ShortcutTableRecord props={{value: valueSet,
-                                        className: ((index === valueSets.length - 1) ? "record-last" : ""),
-            }} /> */}
-
             <ShortcutTableRecord value={valueSet}
                                  className={((index === valueSets.length - 1) ? "record-last" : "")} />
           </React.Fragment>

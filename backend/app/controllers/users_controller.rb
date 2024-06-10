@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def show
-    render json: {hoeg: "hoge", foo: "foo"}, status: :ok
+  def test
+    render json: {test: "hello next.js"}, status: :ok
   end
 end

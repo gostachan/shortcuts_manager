@@ -1,5 +1,9 @@
 "use client";
+
 import { useState } from "react"
+
+import axios from "axios";
+
 import "./page.css"
 
 export default function Signup() {
@@ -15,7 +19,23 @@ export default function Signup() {
   }
 
   function handleClick() {
-    console.log(form);
+    router.push("localhost:3001");
+  }  
+
+  function handleClick() {
+    const singup_info = {"signup_info": {
+      "email":                form.email,
+      "password":             form.password,
+      "psssword_confirmation": form.passwordConfirmation
+    }} 
+
+    axios.post('http://localhost:3000/users', singup_info)
+    .then(function (response) {
+    })
+    .catch(function (error) {
+    });
+
+    console.log(singup_info);
   }
 
   return (

@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react"
+import { useRouter } from "next/navigation";
 
 import axios from "axios";
 
 import "./page.css"
 
 export default function Signup() {
+  const router = useRouter();
   const [form, setForm] = useState({email:                "",
                                     password:             "",
                                     passwordConfirmation: ""})
@@ -19,28 +21,25 @@ export default function Signup() {
   }
 
   function handleClick() {
-    router.push("localhost:3001");
-  }  
-
-  function handleClick() {
     const singup_info = {"signup_info": {
       "email":                form.email,
       "password":             form.password,
       "psssword_confirmation": form.passwordConfirmation
     }} 
 
+    // TODO: エラーコンポーネントを作成して，エラーメッセージを表示する
     axios.post('http://localhost:3000/users', singup_info)
     .then(function (response) {
+      if (response.status === 201) router.push('/');
     })
     .catch(function (error) {
     });
-
-    console.log(singup_info);
   }
 
   return (
 
     // TODO: コンポーネント化してログインフォームと統合
+    // TODO: flashを作成する
     <div className="container">
       <div className="login-form">
         <div className="content">

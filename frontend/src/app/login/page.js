@@ -1,8 +1,14 @@
 "use client";
+
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+import axios from "axios";
+
 import "./page.css";
 
 export default function Login() {
+  const router = useRouter();
   const [form, setForm] = useState({email:    "",
                                     password: ""})
 
@@ -14,7 +20,20 @@ export default function Login() {
   };
 
   function handleClick() {
-    console.log(form);
+    let login_info = { "login_info": { "email":    form.email,
+                                       "password": form.password } }
+
+    console.log(login_info);
+
+    axios.post("http://localhost:3000/login", 
+               login_info, 
+               { withCredentials: true })
+    .then(function (response) {
+      if (response.status == 200) router.push('/');
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   return (

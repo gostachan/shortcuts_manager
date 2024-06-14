@@ -20,5 +20,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                                password_confirmation: "bapasswordr" } }
     end
     assert_response 201
+    assert is_logged_in?
   end
 end

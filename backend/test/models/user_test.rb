@@ -62,4 +62,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  # TODO: 擬似的にセッション固定攻撃を実装して，
+  #       session_resetが行われていることをテストできない？
+
 end

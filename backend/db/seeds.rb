@@ -1,7 +1,7 @@
 User.create!(
   password:              "hogehoge",
   password_confirmation: "hogehoge",
-  email:                 "test@examole.com"
+  email:                 "test@example.com"
 )
 
 5.times do |i|

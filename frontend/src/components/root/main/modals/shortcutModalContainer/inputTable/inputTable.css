@@ -1,0 +1,20 @@
+.input-table {
+  height: 100%;
+}
+.input-table .record {
+  height: 50px;
+  line-height: 50px;
+}
+.input-table .record input {
+  color: gray;
+  font-size: 15px;
+  width: 75%;
+  height: 75%;
+  outline: none;
+  text-align: center;
+}
+.input-table .record .column {
+  width: 25%;
+  border-right: 1px solid lightgray;
+  box-sizing: border-box;
+}/*# sourceMappingURL=inputTable.css.map */

@@ -1,50 +1,52 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+
+
 import "./shortcutTable.css";
+import apiClient from "@/utils/apiClient";
 import ShortcutTableRecord from "./shortcutTableRecord/shortcutTableRecord";
 
+
 export default function ShortcutTable() {
-  let columns = ["favorite", "command", "keybinding", "when", "environment"]
-  let valueSets = [{favorite:   false,
-                 command:    "command1",
-                 keybinding: "keybinding1",
-                 when:       "when1",
-                 environment: "environment1"
-                },
-                {favorite:   false,
-                 command:    "command2",
-                 keybinding: "keybinding2",
-                 when:       "when2",
-                 environment: "environment2"
-                },
-                {favorite:   false,
-                 command:    "command3",
-                 keybinding: "keybinding3",
-                 when:       "when3",
-                 environment: "environment3"
-                },
-                {favorite:   false,
-                 command:    "command4",
-                 keybinding: "keybinding4",
-                 when:       "when4",
-                 environment: "environment4"
-                }]
+  const columns = ["favorite", "command", "keybinding", "when", "environment"]
+  const [valueSets, setValueSets] = useState([]);
+
+  function click() {
+    console.log(`id: ${session_id}`);
+    console.log(`value: ${session_value}`);
+  }
+
+  useEffect(() => {
+    apiClient.get(`/shortcuts`)
+    .then(function (response) {
+      setValueSets(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }, [])
+
 
   return (
     <div className="shortcut-table">
       <div className="record record-first">
         {columns.map((column, index) => {
           return (
-          <div className={`column-${index + 1}`}>
-            <h5>{column}</h5>
-          </div>
+          <React.Fragment key={index}>
+            <div className={`column-${index + 1}`}>
+              <h5>{column}</h5>
+            </div>
+          </React.Fragment>
           )
         })}
       </div>
       {valueSets.map((valueSet, index) => {
         return (
-          <ShortcutTableRecord props={{value: valueSet,
-                                      className: ((index === valueSets.length - 1) ? "record-last" : "")
-          }}
-          />
+          <React.Fragment key={valueSet.id}>
+            <ShortcutTableRecord value={valueSet}
+                                 className={((index === valueSets.length - 1) ? "record-last" : "")} />
+          </React.Fragment>
         )
       })}
     </div>

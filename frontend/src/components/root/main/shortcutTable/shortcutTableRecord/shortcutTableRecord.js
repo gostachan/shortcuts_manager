@@ -1,23 +1,24 @@
 import FavoriteButton from './favoriteButton/favoriteButton';
+import "./shortcutTableRecord.css";
 
-export default function ShortcutTableRecord({props}) {
+export default function ShortcutTableRecord({value, className}) {
 
   return (
-    <div className={"record " + props.className}>
+    <div className={"record " + className}>
       <div className="column-1">
-        <FavoriteButton/>
+        <FavoriteButton favoriteVal={value.favorite}/>
       </div>
       <div className="column-2">
-        <p>{props.value.command}</p>
+        <p>{value.command}</p>
       </div>
       <div className="column-3">
-        <p>{props.value.keybinding}</p>
+        <p>{value.keybinding}</p>
       </div>
       <div className="column-4">
-        <p>{props.value.when}</p>
+        <p>{value.when}</p>
       </div>
       <div className="column-5">
-        <p>{props.value.environment}</p>
+        <p>{value.environment}</p>
       </div>
     </div>
 

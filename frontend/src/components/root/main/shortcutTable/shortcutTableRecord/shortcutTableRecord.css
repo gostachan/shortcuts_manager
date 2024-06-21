@@ -1,0 +1,23 @@
+.record {
+  height: 50px;
+  line-height: 50px;
+}
+.record .column-1 {
+  width: 20%;
+  border-right: 1px solid lightgray;
+}
+.record .column-2 {
+  width: 20%;
+  border-right: 1px solid lightgray;
+}
+.record .column-3 {
+  width: 20%;
+  border-right: 1px solid lightgray;
+}
+.record .column-4 {
+  width: 20%;
+  border-right: 1px solid lightgray;
+}
+.record .column-5 {
+  width: 20%;
+}/*# sourceMappingURL=shortcutTableRecord.css.map */

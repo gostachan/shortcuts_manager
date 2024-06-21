@@ -18,7 +18,7 @@ CheatSheetやKeyCueとは違って，
 （例えば，VSCodeとOSで競合を許さない．  
 VSCodeとchromeは競合を許すなど．  
 下の場合，VSCodeとmacOSが競合すると警告を鳴らす）
-![main](ui_img/main0-0-1.jpg)
+![home](ui_img/home0-0-1.jpg)
 1. 画面右上の十字ボタンをクリックするとモーダルウィンドウのフォームが出現する  
 keybiding以外の項目を入力する  
 ![modal window](ui_img/modal0-0-1.jpg)
@@ -90,7 +90,15 @@ tmuxなどの場合，初期状態で全てのキーにショートカットが�
 ### 改善項目
 * デフォルトショートカットが初めから登録されている機能を追加するならEnvironmentテーブルが必要
 
-# 進捗
+# UI
+#### ホーム画面
+![home](ui_img/home.jpg)
+#### ログイン画面
+![login](ui_img/login.jpg)
+#### サインアップ画面
+![signup](ui_img/signup.jpg)
+
+
 #### お気に入り登録
 <img src="ui_img/favorite.gif" width="100%">
 

@@ -1,10 +1,11 @@
 import "./basicButton.css"
 
-export default function BasicButton({props={modal: false}}) {
+export default function BasicButton({value, className, func}) {
 
   return (
-    <button className={`basic-button ${props.className}`}>
-      {props.value}
+    <button onClick={func}
+            className={`basic-button ${className}`}>
+      {value}
     </button>
   );
 }

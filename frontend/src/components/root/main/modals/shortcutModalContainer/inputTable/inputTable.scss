@@ -1,0 +1,22 @@
+.input-table {
+  height: 100%;
+  .record {
+    height: 50px;
+    line-height: 50px;
+
+    input {
+      color: gray;
+      font-size: 15px;
+      width: 75%;
+      height: 75%;
+      outline: none;
+      text-align: center;
+    }
+
+    .column {
+      width: 25%;
+      border-right: 1px solid lightgray;
+      box-sizing: border-box;
+    }
+  }
+}

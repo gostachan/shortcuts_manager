@@ -3,9 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import axios from "axios";
-
 import "./page.css";
+import apiClient from "@/utils/apiClient";
 
 export default function Login() {
   const router = useRouter();
@@ -23,11 +22,7 @@ export default function Login() {
     let login_info = { "login_info": { "email":    form.email,
                                        "password": form.password } }
 
-    console.log(login_info);
-
-    axios.post("http://localhost:3000/login", 
-               login_info, 
-               { withCredentials: true })
+    apiClient.post("/login", login_info)
     .then(function (response) {
       if (response.status == 200) router.push('/');
     })

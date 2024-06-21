@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./sidebar.css";
 
@@ -8,20 +8,25 @@ import Modal from "../main/modals/modal";
 import ToggleButton from "../layout/toggleButton/toggleButton";
 import BasicButton from "../layout/basicButton/basicButton";
 import EnvButton from "../layout/envButton/envButton";
+import { logged_in } from "@/utils/session_helper";
+import apiClient from "@/utils/apiClient";
 
 export default function Sidebar() {
 
-  // let environments = ["VSCode", "vim", "OS", "chrome", "tmux"];
 
-  let environments = []; 
-  for (let i = 1; i <= 20; ++i) {
-    environments.push(`env ${i}`);
-  }
-
-
+  const [environments, setEnvironments] = useState([]);
   const [createShortcutClicked, toggleShorcutModal] = useState(false);
   const [createGroupClicked, toggleGroupModal] = useState(false);
 
+  useEffect(() => {
+    apiClient.get(`/environments`)
+    .then(function (response) {
+      setEnvironments(response.data.environments);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }, []); 
 
   function handleToggleShortcut() {
     toggleShorcutModal(!createShortcutClicked);
@@ -32,6 +37,14 @@ export default function Sidebar() {
     toggleGroupModal(!createGroupClicked);
     toggleShorcutModal(false);
   }
+
+  function handleLogout() {
+    if (logged_in()) {
+      console.log("ログインしてる");
+    } else {
+      console.log("ログインしていない");
+    }
+  } 
 
 
   return (
@@ -76,7 +89,7 @@ export default function Sidebar() {
           <div className="logout">
             <BasicButton 
               value={"ログアウト"}
-              // className={"logout"}
+              func={handleLogout}
             />
           </div>
         </div>

@@ -4,6 +4,9 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: login_info[:email].downcase)
     if @user&.authenticate(login_info[:password])
       login @user
+      # cookies[:user_name] = { value: 'John Doe',
+      #                         expires: 1.hour.from_now,
+      #                         secure: true }
       render json: { user: @user }, status: 200
     else
       error_message = "Invalid email or password. Please try again."
@@ -15,6 +18,10 @@ class SessionsController < ApplicationController
   def destroy
     logout
     render json: { message: "Logged out successfully"}, status: 200
+  end
+
+  def logged_in
+    render json: {status: logged_in? }, status: 200
   end
 
   private

@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import axios from "axios";
 
 import "./page.css"
+import apiClient from "@/utils/apiClient";
 
 export default function Signup() {
   const router = useRouter();
@@ -28,7 +28,7 @@ export default function Signup() {
     }} 
 
     // TODO: エラーコンポーネントを作成して，エラーメッセージを表示する
-    axios.post('http://localhost:3000/users', singup_info)
+    apiClient.post("/users", singup_info)
     .then(function (response) {
       if (response.status === 201) router.push('/');
     })

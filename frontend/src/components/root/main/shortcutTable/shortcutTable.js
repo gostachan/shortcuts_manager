@@ -2,28 +2,28 @@
 
 import React, { useEffect, useState } from "react";
 
-import axios from "axios";
 
 import "./shortcutTable.css";
+import apiClient from "@/utils/apiClient";
 import ShortcutTableRecord from "./shortcutTableRecord/shortcutTableRecord";
+
 
 export default function ShortcutTable() {
   const columns = ["favorite", "command", "keybinding", "when", "environment"]
   const [valueSets, setValueSets] = useState([]);
 
+  function click() {
+    console.log(`id: ${session_id}`);
+    console.log(`value: ${session_value}`);
+  }
+
   useEffect(() => {
-    axios.get("http://localhost:3000/shortcuts")
+    apiClient.get(`/shortcuts`)
     .then(function (response) {
-      // handle success
       setValueSets(response.data);
-      console.log(valueSets.data);
     })
     .catch(function (error) {
-      // handle error
       console.log(error);
-    })
-    .finally(function () {
-      // always executed
     });
   }, [])
 

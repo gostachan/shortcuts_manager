@@ -14,6 +14,7 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
 
+    # CHECK: sessionだけでなくcookiesも管理しなくては?
     def is_logged_in?
       !session[:user_id].nil?
     end

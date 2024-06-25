@@ -35,6 +35,7 @@ class User < ApplicationRecord
   # 渡されたトークンが正しければtrueを返す
   # SEARCH: 動作原理は
   def authenticated?(remember_token)
+    return false if self.remember_digest.nil?
     BCrypt::Password.new(self.remember_digest).is_password?(remember_token)
   end
 

@@ -22,8 +22,6 @@ module SessionsHelper
         login user
         @current_user = user
       end
-    else
-
     end
   end
 
@@ -35,8 +33,8 @@ module SessionsHelper
 
   def forget_cookies(user)
     user.forget
-    cookies.delete[:user_id]
-    cookies.delete[:remember_token]
+    cookies.delete(:user_id)
+    cookies.delete(:remember_token)
   end
 
   def logout

@@ -3,7 +3,7 @@
   justify-content: 10px;
   align-items: center;
   margin: 150px auto;
-  height: 445px;
+  height: 500px;
   width: 450px;
 }
 .container .login-form {
@@ -20,7 +20,7 @@
   height: 80%;
 }
 .container .login-form .content .forgot-pass {
-  margin-top: 25px;
+  margin-top: 20px;
   color: blue;
 }
 .container .login-form .content .forgot-pass a:hover {
@@ -52,13 +52,13 @@
   padding-left: 10px;
   color: gray;
 }
-.container .login-form .content form .form-group input::-moz-placeholder {
-  font-size: 17px;
-  color: gray;
-}
 .container .login-form .content form .form-group input::placeholder {
   font-size: 17px;
   color: gray;
+}
+.container .login-form .content form .remember-box {
+  color: gray;
+  margin-top: 20px;
 }
 .container .login-form .form-button {
   font-size: 22px;

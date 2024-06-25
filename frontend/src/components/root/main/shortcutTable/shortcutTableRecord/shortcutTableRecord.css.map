@@ -1,1 +1,1 @@
-{"version":3,"sources":["shortcutTableRecord.scss","shortcutTableRecord.css"],"names":[],"mappings":"AAAE;EACE,YAAA;EACA,iBAAA;ACCJ;ADCI;EACE,UAAA;EACA,iCAAA;ACCN;ADCI;EACE,UAAA;EACA,iCAAA;ACCN;ADCI;EACE,UAAA;EACA,iCAAA;ACCN;ADCI;EACE,UAAA;EACA,iCAAA;ACCN;ADCI;EACE,UAAA;ACCN","file":"shortcutTableRecord.css"}
+{"version":3,"sourceRoot":"","sources":["shortcutTableRecord.scss"],"names":[],"mappings":"AAAE;EACE;EACA;;AAEA;EACE;EACA;;AAEF;EACE;EACA;;AAEF;EACE;EACA;;AAEF;EACE;EACA;;AAEF;EACE","file":"shortcutTableRecord.css"}

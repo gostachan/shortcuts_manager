@@ -1,8 +1,32 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
+
 import "./inputTable.css"
+import CustomSelect from "@/components/layout/customSelect/customSelect";
+import apiClient from "@/utils/apiClient";
+
 
 export default function InputTable({onUpdate}) {
   let columns = ["command", "keybinding", "when", "environment"]
+
+  const [options, setOptions] = useState([]);
+
+  useEffect(() => {
+    apiClient.get(`/environments`)
+    .then(function (response) {
+      const tmp_envs = [];
+      for (const env of response.data.environments) {
+        const tmp = { env_id: env.id, value: env.name, label: env.name }
+        tmp_envs.push(tmp);
+      }
+      setOptions(tmp_envs);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }, []); 
+
 
 
   return (
@@ -36,9 +60,11 @@ export default function InputTable({onUpdate}) {
                  onChange={onUpdate}/>
         </div>
         <div className="column column-4">
-          <input type="text" 
-                 name="environment"
-                 onChange={onUpdate}/>
+          <div className="center">
+            <CustomSelect options={options} 
+                          placeholder="Option" 
+                          className="sources" />
+          </div>
         </div>
       </div>
     </div>

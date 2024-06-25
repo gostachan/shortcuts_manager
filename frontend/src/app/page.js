@@ -1,11 +1,11 @@
 "use client";
+
 import "./page.css";
 import Sidebar from "@/components/root/sidebar/sidebar";
 import ShortcutTable from "@/components/root/main/shortcutTable/shortcutTable";
 
+
 export default function Home() {
-
-
   return (
     <>
       <Sidebar/>

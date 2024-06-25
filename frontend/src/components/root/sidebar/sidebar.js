@@ -20,7 +20,11 @@ export default function Sidebar() {
   useEffect(() => {
     apiClient.get(`/environments`)
     .then(function (response) {
-      setEnvironments(response.data.environments);
+      const tmp_envs = [];
+      for (const env of response.data.environments) {
+        tmp_envs.push(env.name);
+      }
+      setEnvironments(tmp_envs);
     })
     .catch(function (error) {
       console.log(error);
@@ -41,7 +45,6 @@ export default function Sidebar() {
     apiClient.delete("/logout")
     .then(function (response) {
       if (response.status == 200) {
-        console.log(response.message);
         router.push('/login');
       }
     })

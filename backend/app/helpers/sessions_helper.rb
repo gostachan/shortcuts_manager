@@ -11,6 +11,7 @@ module SessionsHelper
   end
 
   # SEARCH: どんな状況で使われることを想像しているか
+
   def current_user
     # NOTE: 条件式で代入している, 右辺がnilの時は実行されない
     if (user_id = session[:user_id])
@@ -18,7 +19,6 @@ module SessionsHelper
     elsif (user_id = cookies.encrypted[:user_id])
       user = User.find_by(id: user_id)
       if user&.authenticated?(cookies[:remember_token])
-        # TODO: rails tutorialではここでreset_sessionが入らないのはなぜ?
         login user
         @current_user = user
       end

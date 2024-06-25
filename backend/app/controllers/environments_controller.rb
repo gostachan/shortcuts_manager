@@ -4,7 +4,7 @@ class EnvironmentsController < ApplicationController
     if current_user
       environments = []
       current_user.environments.each do |environment|
-        environments << environment.name
+        environments << environment
       end
       render json: { environments: environments }, status: 200
     else

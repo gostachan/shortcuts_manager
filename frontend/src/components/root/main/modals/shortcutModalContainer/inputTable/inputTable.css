@@ -6,8 +6,10 @@
   line-height: 50px;
 }
 .input-table .record input {
+  font-family: __Inter_aaf875, __Inter_Fallback_aaf875;
   color: gray;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 400;
   width: 75%;
   height: 75%;
   outline: none;

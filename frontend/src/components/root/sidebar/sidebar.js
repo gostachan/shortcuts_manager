@@ -8,7 +8,6 @@ import Modal from "../main/modals/modal";
 import ToggleButton from "../layout/toggleButton/toggleButton";
 import BasicButton from "../layout/basicButton/basicButton";
 import EnvButton from "../layout/envButton/envButton";
-import { logged_in } from "@/utils/session_helper";
 import apiClient from "@/utils/apiClient";
 
 export default function Sidebar() {
@@ -39,12 +38,18 @@ export default function Sidebar() {
   }
 
   function handleLogout() {
-    if (logged_in()) {
-      console.log("ログインしてる");
-    } else {
-      console.log("ログインしていない");
-    }
+    apiClient.delete("/logout")
+    .then(function (response) {
+      if (response.status == 200) {
+        console.log(response.message);
+        router.push('/login');
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   } 
+
 
 
   return (

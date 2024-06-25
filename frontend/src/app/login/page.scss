@@ -3,7 +3,7 @@
   justify-content: 10px;
   align-items: center;
   margin: 150px auto;
-  height: 445px;
+  height: 500px;
   width: 450px;
    
   .login-form {
@@ -21,7 +21,7 @@
       height: 80%;
 
       .forgot-pass {
-        margin-top: 25px;
+        margin-top: 20px;
         color: blue;
 
         a:hover {
@@ -61,6 +61,13 @@
             font-size: 17px;
             color: gray;
           }
+        }
+
+        .remember-box {
+          color: gray;
+          margin-top: 20px;
+
+
         }
       }
     }

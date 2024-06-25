@@ -8,8 +8,9 @@ import apiClient from "@/utils/apiClient";
 
 export default function Login() {
   const router = useRouter();
-  const [form, setForm] = useState({email:    "",
-                                    password: ""})
+  const [form, setForm] = useState({ email:     "",
+                                     password:  "" })
+  const [isChecked, setCheck] = useState(false);
 
   function handleForm(element) {
     setForm({
@@ -18,9 +19,14 @@ export default function Login() {
     });
   };
 
+  function handleCheckboxChange() {
+    setCheck(!isChecked);
+  }
+
   function handleClick() {
-    let login_info = { "login_info": { "email":    form.email,
-                                       "password": form.password } }
+    const login_info = { "login_info": { "email":      form.email,
+                                         "password":   form.password,
+                                         "isChecked":  isChecked }}
 
     apiClient.post("/login", login_info)
     .then(function (response) {
@@ -61,9 +67,17 @@ export default function Login() {
                 value=   {form.password}
               />
             </div>
+            <p className="remember-box">
+              <input 
+                type="checkbox" 
+                checked={isChecked} 
+                onChange={handleCheckboxChange} 
+              />
+              ログイン情報を保存する
+            </p>
             <div className="forgot-pass">
-            <a href="#">パスワードを忘れた</a>
-          </div>
+              <a href="#">パスワードを忘れた</a>
+            </div>
           </form>
         </div>
         <button className="form-button" 

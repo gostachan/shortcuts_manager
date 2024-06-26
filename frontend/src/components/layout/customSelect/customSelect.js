@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import "./customSelect.css"
 
-export default function CustomSelect({ options, placeholder, className }) {
+export default function CustomSelect({ options, 
+                                       placeholder,  
+                                       setSelectedEnvId,
+                                       className }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(placeholder);
 
@@ -23,6 +26,7 @@ export default function CustomSelect({ options, placeholder, className }) {
 
   function handleSelect(option) {
     setSelectedOption(option.label);
+    setSelectedEnvId(option.id);
     setIsOpen(false);
   };
 

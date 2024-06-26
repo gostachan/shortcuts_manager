@@ -1,50 +1,53 @@
 "use client";
-import { useState } from "react";
 
+import { useContext, useState } from "react";
+
+import { MyAppContext } from "@/app/page";
+import apiClient from "@/utils/apiClient";
 import BasicButton from "@/components/root/layout/basicButton/basicButton";
 import InputTable from "./inputTable/inputTable";
 import Keyboard from "./keyboard/keyboard";
 import "./shortcutModalContainer.css";
-import apiClient from "@/utils/apiClient";
 
-export default function ShortcutModalContainer() {
-  const [form, setForm] = useState({ command:     "",
-                                     keybinding:  "",
-                                     when:        "",
-                                     environment: "" });
 
-  function handleForm(element) {
-    setForm({
-      ...form,
-      [element.target.name]: element.target.value
-    });
-    console.log(form);
-  }
+export default function ShortcutModalContainer({closeModal}) {
+  const { updateValueSets } = useContext(MyAppContext);
+  const [shortcutInfo, setShortcutInfo] = useState({ command:        "",
+                                     keybinding:     "",
+                                     when:           "",
+                                     environment_id: 0 });
 
   function handleClick() {
-    const shortcut_info = { "shortcut_info": { "command":        "command value",
-                                               "keybinding":     "keybinding value",
-                                               "when":           "when value",          
-                                               "environment_id": 13 } }
-    apiClient.post("/environments", shortcut_info) 
+    const shortcut_info = { "shortcut_info": {
+      ...shortcutInfo
+    }}
+
+    apiClient.post("/shortcuts", shortcut_info) 
       .then(function (response) {
-        console.log(response);
+        if (response.status == 201) {
+          closeModal();
+          console.log("router test");
+        }
       })
       .catch(function (error) {
         console.log(error);
       })
+
+      updateValueSets();
   }
 
   return (
 
     <div className="container">
       <div className="new-table">
-        <InputTable onUpdate={handleForm}/>
+        <InputTable shortcutInfo={shortcutInfo}
+                    setShortcutInfo={setShortcutInfo} />
       </div>
       <div className="keyboard">
         <Keyboard/>
       </div>
-        <BasicButton func={handleClick} value={"save"}/>
+        <BasicButton func={handleClick} 
+                     value={"save"}/>
     </div>
   );
 }

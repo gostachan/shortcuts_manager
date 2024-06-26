@@ -3,7 +3,7 @@ import ShortcutModalContainer from "./shortcutModalContainer/shortcutModalContai
 import GroupModalContainer from "./groupModalContainer/groupModal";
 
 
-export default function Modal({modalType}) {
+export default function Modal({modalType, closeModal}) {
 
   return (
     <>
@@ -11,7 +11,7 @@ export default function Modal({modalType}) {
         if (modalType.createShortcut) {
           return (
             <div className="shortcut-modal">
-              <ShortcutModalContainer/>
+              <ShortcutModalContainer closeModal={closeModal}/>
             </div>
           );
         } else if (modalType.createGroup) {

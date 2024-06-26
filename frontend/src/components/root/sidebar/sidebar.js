@@ -53,7 +53,10 @@ export default function Sidebar() {
     });
   } 
 
-
+  function closeModal() {
+    toggleShorcutModal(false);
+    toggleGroupModal(false);
+  }
 
   return (
     <>
@@ -61,7 +64,9 @@ export default function Sidebar() {
         <div className={`modal-area ${(createShortcutClicked || createGroupClicked) ? "" : "display-none"}`}>
           <Modal modalType={{ createShortcut: createShortcutClicked,
                               createGroup:   createGroupClicked 
-                            }}/>
+                            }}
+                 closeModal={closeModal}
+                 />
         </div>
         <div className="sidebar-container">
           <div className="env-buttons">

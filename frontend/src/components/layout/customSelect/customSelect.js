@@ -12,6 +12,10 @@ export default function CustomSelect({ options, placeholder, className }) {
       }
     };
     document.addEventListener('click', handleOutsideClick);
+    // NOTE: return内の関数は
+    //   1, コンポーネントがアンマウントされる時
+    //   2, [isOpen]が変化する時
+    //   に実行される
     return function() {
       document.removeEventListener('click', handleOutsideClick);
     };
@@ -21,6 +25,7 @@ export default function CustomSelect({ options, placeholder, className }) {
     setSelectedOption(option.label);
     setIsOpen(false);
   };
+
 
   return (
     <div className="custom-select-wrapper">

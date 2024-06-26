@@ -15,12 +15,13 @@ export default function InputTable({onUpdate}) {
   useEffect(() => {
     apiClient.get(`/environments`)
     .then(function (response) {
-      const tmp_envs = [];
+      const tmp_options = [];
       for (const env of response.data.environments) {
-        const tmp = { env_id: env.id, value: env.name, label: env.name }
-        tmp_envs.push(tmp);
+        // FIXME: valueとlavelを二つに分ける必要はない
+        const tmp_option = { env_id: env.id, value: env.name, label: env.name }
+        tmp_options.push(tmp_option);
       }
-      setOptions(tmp_envs);
+      setOptions(tmp_options);
     })
     .catch(function (error) {
       console.log(error);

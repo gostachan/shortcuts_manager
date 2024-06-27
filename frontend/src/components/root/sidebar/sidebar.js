@@ -16,6 +16,7 @@ export default function Sidebar() {
   const [envName, setEnvName] = useState("");
   const [createShortcutClicked, toggleShorcutModal] = useState(false);
   const [createGroupClicked, toggleGroupModal] = useState(false);
+  const [editBtncliced, toggleEditBtn] = useState(false);
   const [isEnvFormVisible, setEnvForm] = useState(false);
 
   function updateEnvironments() {
@@ -40,11 +41,19 @@ export default function Sidebar() {
   function handleToggleShortcut() {
     toggleShorcutModal(!createShortcutClicked);
     toggleGroupModal(false);
+    toggleEditBtn(false);
   }
 
   function handleToggleGroup() {
     toggleGroupModal(!createGroupClicked);
     toggleShorcutModal(false);
+    toggleEditBtn(false);
+  }
+
+  function handleToggleEdit() {
+    toggleEditBtn(!editBtncliced);
+    toggleShorcutModal(false);
+    toggleGroupModal(false);
   }
 
   function handleLogout() {
@@ -141,6 +150,10 @@ export default function Sidebar() {
             onToggle={handleToggleGroup}
             value={"グループを作成"}
             className={(createGroupClicked) ? "clicked" : "non-clicked"}/>
+          <ToggleButton 
+            onToggle={handleToggleEdit}
+            value={"編集"}
+            className={(editBtncliced) ? "clicked" : "non-clicked"}/>
 
           <div className="logout">
             <BasicButton 

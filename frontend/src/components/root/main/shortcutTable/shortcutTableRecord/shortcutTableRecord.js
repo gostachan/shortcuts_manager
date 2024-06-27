@@ -6,7 +6,8 @@ export default function ShortcutTableRecord({value, className}) {
   return (
     <div className={"record " + className}>
       <div className="column-1">
-        <FavoriteButton favoriteVal={value.favorite}/>
+        <FavoriteButton id={value.id}
+                        favoriteVal={value.favorite}/>
       </div>
       <div className="column-2">
         <p>{value.command}</p>

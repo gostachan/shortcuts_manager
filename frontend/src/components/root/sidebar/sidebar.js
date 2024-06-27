@@ -12,7 +12,6 @@ import apiClient from "@/utils/apiClient";
 
 export default function Sidebar() {
 
-
   const [environments, setEnvironments] = useState([]);
   const [envName, setEnvName] = useState("");
   const [createShortcutClicked, toggleShorcutModal] = useState(false);
@@ -89,6 +88,7 @@ export default function Sidebar() {
     toggleGroupModal(false);
   }
 
+
   return (
     <>
       <div className="side-bar">
@@ -141,7 +141,6 @@ export default function Sidebar() {
             onToggle={handleToggleGroup}
             value={"グループを作成"}
             className={(createGroupClicked) ? "clicked" : "non-clicked"}/>
-
 
           <div className="logout">
             <BasicButton 

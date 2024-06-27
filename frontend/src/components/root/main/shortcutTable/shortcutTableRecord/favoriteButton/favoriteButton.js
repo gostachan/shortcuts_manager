@@ -1,41 +1,24 @@
-// "use client";
-// import React, { useState } from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faHeart } from '@fortawesome/free-solid-svg-icons';
-
-// import "./favoriteButton.css"
-
-// export default function FavoriteButton(favoriteVal) {
-//   const [favorite, setFavorite] = useState(favoriteVal);
-
-//   const toggleFavorite = () => {
-//     setFavorite(!favorite);
-//     console.log(!favorite);
-//   };
-
-//   return (
-//     <FontAwesomeIcon 
-//       icon={faHeart} 
-//       className={(favorite) ? "favorite" : "non-favorite"}
-//       onClick={toggleFavorite} 
-//     />
-//   );
-// };
-
 "use client";
+
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import "./favoriteButton.css"
+import apiClient from '@/utils/apiClient';
 
-export default function FavoriteButton({favoriteVal}) {
+export default function FavoriteButton({id, favoriteVal}) {
 
   const [favorite, setFavorite] = useState(favoriteVal);
 
+
   const toggleFavorite = () => {
     setFavorite(!favorite);
-    console.log(!favorite);
+
+    // SEARCH: 下のオブジェクトのfavoriteの値が !favorite になるのはなぜ？
+    //   多分stateが更新されるのは関数が処理されたあとだから
+    const shortcut_info = { "shortcut_info": { "favorite": !favorite } }
+    apiClient.put(`/shortcuts/${id}`, shortcut_info)
   };
 
   return (

@@ -61,6 +61,8 @@ export default function InputTable({shortcutInfo, setShortcutInfo}) {
         })}
       </div> 
 
+
+      {/* HACK: valueに値を持たせるフォームの方が良い？ */}
       <div className="record record-last">
         <div className="column column-1">
           <input type="text" 

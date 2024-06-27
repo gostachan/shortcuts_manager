@@ -42,6 +42,31 @@ class ShortcutsController < ApplicationController
   end
 
 
+  def update
+    user = current_user
+    shortcut = Shortcut.find_by(id: params[:id])
+
+
+    if user.id != shortcut.environment.user_id
+      render json: { error: "Unauthorized",
+                     message: "Invalid or missing authentication credentials." },
+             status: 403
+      return
+    end
+
+    shortcut.favorite = shortcut_info[:favorite]
+    if shortcut.save
+      render json: { message: "Shortcut infomation updated successfully.",
+                     shortcut: shortcut },
+             status: 200
+    else
+      render json: { message: "Bad request." }, status: 400
+    end
+
+  end
+
+
+
 
 
   private
@@ -50,8 +75,12 @@ class ShortcutsController < ApplicationController
     params.require(:shortcut_info).permit(:command,
                                           :keybinding,
                                           :when,
-                                          :environment_id)
+                                          :environment_id,
+                                          :favorite)
   end
+
+
+
 
 
 end

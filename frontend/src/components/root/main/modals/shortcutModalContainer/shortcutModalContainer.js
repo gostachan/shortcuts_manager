@@ -11,7 +11,7 @@ import "./shortcutModalContainer.css";
 
 
 export default function ShortcutModalContainer({closeModal}) {
-  const { updateValueSets } = useContext(MyAppContext);
+  const { valueSets ,updateValueSets } = useContext(MyAppContext);
   const [shortcutInfo, setShortcutInfo] = useState({ command:        "",
                                      keybinding:     "",
                                      when:           "",
@@ -26,7 +26,6 @@ export default function ShortcutModalContainer({closeModal}) {
       .then(function (response) {
         if (response.status == 201) {
           closeModal();
-          console.log("router test");
         }
       })
       .catch(function (error) {
@@ -46,7 +45,7 @@ export default function ShortcutModalContainer({closeModal}) {
       <div className="keyboard">
         <Keyboard/>
       </div>
-        <BasicButton func={handleClick} 
+        <BasicButton onclick={handleClick} 
                      value={"save"}/>
     </div>
   );

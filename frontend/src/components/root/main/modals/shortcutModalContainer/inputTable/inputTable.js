@@ -20,6 +20,7 @@ export default function InputTable({shortcutInfo, setShortcutInfo}) {
     });
   }
 
+  // FIXME: useEffect使わないでいけそう
   useEffect(() => {
     setShortcutInfo({
       ...shortcutInfo,

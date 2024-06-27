@@ -14,21 +14,28 @@ export default function Sidebar() {
 
 
   const [environments, setEnvironments] = useState([]);
+  const [envName, setEnvName] = useState("");
   const [createShortcutClicked, toggleShorcutModal] = useState(false);
   const [createGroupClicked, toggleGroupModal] = useState(false);
+  const [isEnvFormVisible, setEnvForm] = useState(false);
 
-  useEffect(() => {
+  function updateEnvironments() {
+    // FIXME: ここでenvそのものをpushするよりenv.nameとenv.idを分けてpushした方が良いかも
     apiClient.get(`/environments`)
     .then(function (response) {
       const tmp_envs = [];
       for (const env of response.data.environments) {
-        tmp_envs.push(env.name);
+        tmp_envs.push(env);
       }
       setEnvironments(tmp_envs);
     })
     .catch(function (error) {
       console.log(error);
     });
+  }
+
+  useEffect(() => {
+    updateEnvironments();
   }, []); 
 
   function handleToggleShortcut() {
@@ -52,6 +59,30 @@ export default function Sidebar() {
       console.log(error);
     });
   } 
+
+  function makeEnvFormVisible() {
+    setEnvForm(!isEnvFormVisible);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const environment_info = { "environment_info": { "name": envName } }
+
+    apiClient.post("/environments", environment_info) 
+      .then(function (response) {
+        if (response.status == 201) {
+          setEnvForm(false);
+          setEnvName("");
+          updateEnvironments();
+        }
+      })
+      .catch(function (error) {
+      })
+  }
+
+  function onUpdate(element) {
+    setEnvName(element.target.value);
+  }
 
   function closeModal() {
     toggleShorcutModal(false);
@@ -77,16 +108,29 @@ export default function Sidebar() {
               else if (index === environments.length - 1) classNameOption = "last";
 
               return (
-                <React.Fragment key={environment}>
+                <React.Fragment key={environment.id}>
                   <EnvButton 
-                    value={environment}
-                    className={`${environment} ${classNameOption}`}/>
+                    value={environment.name}
+                    className={`${environment.name} ${classNameOption}`}/>
                 </React.Fragment>
               );
             })}
           </div>
+          <dev className={`env-form-area ${isEnvFormVisible ? "visible" : ""}`}>
+            <form className="env-form"
+                  onSubmit={handleSubmit}> 
+              <input type="text" 
+                     className="env-form-input"
+                     name="name"
+                     value={envName}
+                     onChange={onUpdate}
+                     placeholder="New Environment Name"
+                     />
+            </form>
+          </dev>
           <BasicButton 
-            value={"+"}
+            onclick={makeEnvFormVisible}
+            value={isEnvFormVisible ? "-" : "+"}
           />
 
           <ToggleButton 
@@ -102,7 +146,7 @@ export default function Sidebar() {
           <div className="logout">
             <BasicButton 
               value={"ログアウト"}
-              func={handleLogout}
+              onclick={handleLogout}
             />
           </div>
         </div>

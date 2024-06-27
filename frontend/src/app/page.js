@@ -14,7 +14,6 @@ export default function Home() {
   const [valueSets, setValueSets] = useState([]);
 
   function updateValueSets() {
-    console.log("リクエストが送信されました");
     apiClient.get(`/shortcuts`)
       .then(function (response) {
         setValueSets(response.data);

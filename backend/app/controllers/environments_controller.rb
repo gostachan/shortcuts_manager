@@ -23,6 +23,29 @@ class EnvironmentsController < ApplicationController
     end
   end
 
+  def update
+    user = current_user
+    environment = Environment.find_by(id: params[:id])
+
+
+    if user.id != environment.user_id
+      render json: { error: "Unauthorized",
+                     message: "Invalid or missing authentication credentials." },
+             status: 403
+      return
+    end
+
+    environment.name = environment_info[:name]
+    if environment.save
+      render json: { message: "Shortcut infomation updated successfully.",
+                     environment: environment },
+             status: 200
+    else
+      render json: { message: "Bad request." }, status: 400
+    end
+
+  end
+
   private
 
     def environment_info

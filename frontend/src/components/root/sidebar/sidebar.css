@@ -53,6 +53,9 @@
 .side-bar .sidebar-container .env-form-area .env-form-input::placeholder {
   color: white;
 }
+.side-bar .sidebar-container .down-env-form-btn {
+  margin-top: 50px;
+}
 .side-bar .sidebar-container .visible {
   display: block;
 }

@@ -10,6 +10,7 @@ export default function ShortcutTable() {
   const columns = ["favorite", "command", "keybinding", "when", "environment"];
   const { valueSets, updateValueSets } = useContext(MyAppContext);
 
+  // HACK:  updateValueSetsをexport defaultするファイルを作成する
   useEffect(() => {
     updateValueSets();
   }, []);

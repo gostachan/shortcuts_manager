@@ -1,10 +1,10 @@
 class ShortcutsController < ApplicationController
   def index
     if current_user
-      environments = current_user.environments
+      environments = current_user.environments.order(created_at: :desc)
       shortcuts = []
       environments.each do |environment|
-        environment.shortcuts.each do |shortcut|
+        environment.shortcuts.order(id: :desc).each do |shortcut|
           data = {id:          shortcut.id,
                   favorite:    shortcut.favorite,
                   command:     shortcut.command,

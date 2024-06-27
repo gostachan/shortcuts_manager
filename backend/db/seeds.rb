@@ -18,7 +18,7 @@ end
       command:     "env#{env_i} shortcut#{shortcut_i}",
       key_binding: "env#{env_i} shortcut#{shortcut_i}",
       condition:   "env#{env_i} shortcut#{shortcut_i}",
-      favorite:    (shortcut_i % 2 == 0 ? true : false),
+      favorite:    false,
     )
   end
 end

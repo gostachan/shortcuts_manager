@@ -1,9 +1,9 @@
 import "./basicButton.css"
 
-export default function BasicButton({value, className, func}) {
+export default function BasicButton({value, className, onclick}) {
 
   return (
-    <button onClick={func}
+    <button onClick={onclick}
             className={`basic-button ${className}`}>
       {value}
     </button>

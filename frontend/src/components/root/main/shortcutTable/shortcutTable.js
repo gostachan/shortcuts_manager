@@ -7,7 +7,7 @@ import ShortcutTableRecord from "./shortcutTableRecord/shortcutTableRecord";
 import "./shortcutTable.css";
 
 export default function ShortcutTable() {
-  const columns = ["favorite", "command", "keybinding", "when", "environment"];
+  const columns = ["favorite", "keybinding", "command", "when", "environment"];
   const { valueSets, updateValueSets } = useContext(MyAppContext);
 
   // HACK:  updateValueSetsをexport defaultするファイルを作成する
@@ -21,7 +21,7 @@ export default function ShortcutTable() {
         {columns.map((column, index) => {
           return (
             <React.Fragment key={index}>
-              <div className={`column-${index + 1}`}>
+              <div className={`column column-${index + 1}`}>
                 <h5>{column}</h5>
               </div>
             </React.Fragment>

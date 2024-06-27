@@ -5,21 +5,29 @@ export default function ShortcutTableRecord({value, className}) {
 
   return (
     <div className={"record " + className}>
-      <div className="column-1">
+      <div className="column column-1">
         <FavoriteButton id={value.id}
                         favoriteVal={value.favorite}/>
       </div>
-      <div className="column-2">
-        <p>{value.command}</p>
+      <div className="column column-2">
+        <div className='p-area'>
+          <p>{value.keybinding}</p>
+        </div>
       </div>
-      <div className="column-3">
-        <p>{value.keybinding}</p>
+      <div className="column column-3">
+        <div className='p-area'>
+          <p>{value.command}</p>
+        </div>
       </div>
-      <div className="column-4">
-        <p>{value.when}</p>
+      <div className="column column-4">
+        <div className='p-area'>
+          <p>{value.when}</p>
+        </div>
       </div>
-      <div className="column-5">
-        <p>{value.environment}</p>
+      <div className="column column-5">
+        <div className='p-area'>
+          <p>{value.environment}</p>
+        </div>
       </div>
     </div>
 

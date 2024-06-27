@@ -3,7 +3,7 @@ class EnvironmentsController < ApplicationController
   def index
     if current_user
       environments = []
-      current_user.environments.each do |environment|
+      current_user.environments.order(id: :desc).each do |environment|
         environments << environment
       end
       render json: { environments: environments }, status: 200

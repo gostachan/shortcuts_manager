@@ -10,6 +10,10 @@
   border-bottom: none;
 }
 
+.forcus {
+  background-color: #007bff;
+}
+
 .env-button-form::placeholder {
   color: white;
 }

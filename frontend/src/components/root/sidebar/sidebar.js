@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 
 import "./sidebar.css";
 
-import { MyAppContext } from "@/app/page";
+import { Context } from "@/utils/context";
 import Modal from "../main/modals/modal";
 import ToggleButton from "../layout/toggleButton/toggleButton";
 import BasicButton from "../layout/basicButton/basicButton";
@@ -13,7 +13,7 @@ import apiClient from "@/utils/apiClient";
 import EnvButtonForm from "../layout/envButtonForm/envButtonForm";
 
 export default function Sidebar() {
-  const { editBtnClicked, toggleEditBtn} = useContext(MyAppContext);
+  const { editBtnClicked, toggleEditBtn} = useContext(Context);
 
   const [environments, setEnvironments] = useState([]);
   const [envName, setEnvName] = useState("");
@@ -147,6 +147,7 @@ export default function Sidebar() {
             <form className="env-form"
                   onSubmit={handleSubmit}> 
               <input type="text" 
+                     autoComplete="off"
                      className="env-form-input"
                      name="name"
                      value={envName}

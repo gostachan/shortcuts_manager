@@ -66,16 +66,19 @@ export default function InputTable({shortcutInfo, setShortcutInfo}) {
       <div className="record record-last">
         <div className="column column-1">
           <input type="text" 
+                 autoComplete="off"
                  name="keybinding"
                  onChange={onUpdate}/>
         </div>
         <div className="column column-2">
           <input type="text" 
+                 autoComplete="off"
                  name="command"
                  onChange={onUpdate}/>
         </div>
         <div className="column column-3">
           <input type="text" 
+                 autoComplete="off"
                  name="when"
                  onChange={onUpdate}/>
         </div>

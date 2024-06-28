@@ -1,19 +1,17 @@
 "use client";
 
-import { MyAppContext } from "@/app/page";
 import { useContext, useState } from "react";
+import { Context } from "@/utils/context";
 
 import apiClient from "@/utils/apiClient";
 import "./envButtonForm.css";
 
 
 export default function EnvButtonForm({ values, className }) {
-  const { updateValueSets } = useContext(MyAppContext); 
+  const { renderShortcutTable } = useContext(Context); 
   const [fixedEnvName, setFixedEnvName] = useState("");
   const [isForcus, setIsForcus] = useState(false);
 
-  // FIXME: フォームに文字を入力してからreturnを押さないと変更が適応されない
-  // 多分編集した環境のIDを配列に記録して保存したタイミングでfor文でクエストすればOK
   function handleSubmit(event) {
     event.preventDefault();
     const input_field = document.getElementById(`env-${values.id}`);
@@ -22,7 +20,7 @@ export default function EnvButtonForm({ values, className }) {
     const environment_info = { "environment_info": { "name": fixedEnvName } }
     apiClient.put(`/environments/${values.id}`, environment_info)
     .then((res) => {
-      updateValueSets();
+      renderShortcutTable();
       console.log(res);
     })
     .catch((error) => {
@@ -40,7 +38,10 @@ export default function EnvButtonForm({ values, className }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input className={`env-button-form ${className}` }
+      <input className={`env-button-form 
+                         ${className} 
+                         ${isForcus ? "forcus" : "blur"}` }
+            autoComplete="off"
              id={`env-${values.id}`}
              value={fixedEnvName}
              placeholder={isForcus ? "" : values.name}

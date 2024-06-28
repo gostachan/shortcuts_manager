@@ -47,6 +47,7 @@ export default function Login() {
             <h1 className="form-title">log in</h1>
             <div className="form-group">
               <input
+                autoComplete="off"
                 type=       "text"
                 id=         "email"
                 name=       "email"
@@ -58,6 +59,7 @@ export default function Login() {
             </div>
             <div className="form-group">
               <input
+                autoComplete="off"
                 type=       "password"
                 id=         "password"
                 name=       "password"
@@ -69,6 +71,7 @@ export default function Login() {
             </div>
             <p className="remember-box">
               <input 
+                autoComplete="off"
                 type="checkbox" 
                 checked={isChecked} 
                 onChange={handleCheckboxChange} 

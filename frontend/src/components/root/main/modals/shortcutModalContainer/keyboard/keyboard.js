@@ -1,4 +1,4 @@
-import "./keyboard.css"
+import "./keyboard.scss"
 
 export default function Keyboard() {
 

@@ -3,7 +3,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import "./garbageButton.css"
+import "./garbageButton.scss"
 import apiClient from '@/utils/apiClient';
 import { useContext } from 'react';
 import { Context } from '@/utils/context';

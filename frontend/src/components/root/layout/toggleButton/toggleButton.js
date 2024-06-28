@@ -1,4 +1,4 @@
-import "./toggleButton.css"
+import "./toggleButton.scss"
 
 export default function ToggleButton({onToggle, value, className}) {
 

@@ -1,4 +1,4 @@
-import "./basicButton.css"
+import "./basicButton.scss"
 
 export default function BasicButton({value, className, onclick}) {
 

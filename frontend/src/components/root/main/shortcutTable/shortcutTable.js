@@ -3,7 +3,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import ShortcutTableRecord from "./shortcutTableRecord/shortcutTableRecord";
-import "./shortcutTable.css";
+import "./shortcutTable.scss";
 import { Context } from "@/utils/context";
 
 export default function ShortcutTable() {

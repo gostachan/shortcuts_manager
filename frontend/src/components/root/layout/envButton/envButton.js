@@ -1,5 +1,5 @@
 "use client";
-import "./envButton.css";
+import "./envButton.scss";
 import { useState } from "react";
 
 export default function EnvButton({value, className}) {

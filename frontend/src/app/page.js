@@ -2,7 +2,7 @@
 
 import ShortcutTable from "@/components/root/main/shortcutTable/shortcutTable";
 import Sidebar from "@/components/root/sidebar/sidebar";
-import "./page.css";
+import "./page.scss";
 import ContextComponent from "@/utils/context";
 
 

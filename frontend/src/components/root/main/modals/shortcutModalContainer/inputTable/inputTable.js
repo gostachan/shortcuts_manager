@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import "./inputTable.css"
+import "./inputTable.scss"
 import CustomSelect from "@/components/layout/customSelect/customSelect";
 import apiClient from "@/utils/apiClient";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import apiClient from "@/utils/apiClient";
 
 export const Context = createContext();
@@ -21,7 +21,6 @@ export default function ContextComponent({ children }) {
   }
 
   function renderEnvBtns() {
-    // HACK: ここでenvそのものをpushするよりenv.nameとenv.idを分けてpushした方が良いかも
     apiClient.get(`/environments`)
     .then(function (response) {
       const tmp_envs = [];

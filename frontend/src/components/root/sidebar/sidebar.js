@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
 import React, { useContext, useEffect, useState } from "react";
 
-import "./sidebar.css";
+import "./sidebar.scss";
 
 import apiClient     from "@/utils/apiClient";
 import { Context }   from "@/utils/context";

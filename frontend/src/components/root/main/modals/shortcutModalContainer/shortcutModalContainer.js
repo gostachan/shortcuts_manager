@@ -7,7 +7,7 @@ import apiClient from "@/utils/apiClient";
 import BasicButton from "@/components/root/layout/basicButton/basicButton";
 import InputTable from "./inputTable/inputTable";
 import Keyboard from "./keyboard/keyboard";
-import "./shortcutModalContainer.css";
+import "./shortcutModalContainer.scss";
 
 
 export default function ShortcutModalContainer({closeModal}) {

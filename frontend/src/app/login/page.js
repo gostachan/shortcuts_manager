@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import "./page.css";
+import "./page.scss";
 import apiClient from "@/utils/apiClient";
 
 export default function Login() {

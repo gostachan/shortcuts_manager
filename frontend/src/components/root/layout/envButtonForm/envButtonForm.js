@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { Context } from "@/utils/context";
 
 import apiClient from "@/utils/apiClient";
-import "./envButtonForm.css";
+import "./envButtonForm.scss";
 
 
 export default function EnvButtonForm({ values, className }) {

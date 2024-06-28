@@ -1,4 +1,4 @@
-import "./flash.css";
+import "./flash.scss";
 
 export default function Flash({type}) {
 

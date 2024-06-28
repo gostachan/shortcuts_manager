@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { Context } from '@/utils/context';
 import FavoriteButton from './favoriteButton/favoriteButton';
 import GarbageButton from './garbageButton/garbageButton';
-import "./shortcutTableRecord.css";
+import "./shortcutTableRecord.scss";
 
 
 export default function ShortcutTableRecord({value, className}) {

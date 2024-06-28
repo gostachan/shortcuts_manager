@@ -25,20 +25,18 @@ export default function Home() {
   }
 
   return (
-    <>
-      <MyAppContext.Provider value={{ valueSets, 
-                                      updateValueSets, 
-                                      editBtnClicked,
-                                      toggleEditBtn }}>
-        <Sidebar/>
-        <div className="main">
-          <div className="main-container">
-            <div className="shortcut-table-area">
-              <ShortcutTable/>
-            </div>
+    <MyAppContext.Provider value={{ valueSets, 
+                                    updateValueSets, 
+                                    editBtnClicked,
+                                    toggleEditBtn }}>
+      <Sidebar/>
+      <div className="main">
+        <div className="main-container">
+          <div className="shortcut-table-area">
+            <ShortcutTable/>
           </div>
         </div>
-      </MyAppContext.Provider>
-    </>
+      </div>
+    </MyAppContext.Provider>
   );
 }

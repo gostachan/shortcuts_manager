@@ -1,14 +1,22 @@
 "use client";
 
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { MyAppContext } from "@/app/page";
 import ShortcutTableRecord from "./shortcutTableRecord/shortcutTableRecord";
 import "./shortcutTable.css";
 
 export default function ShortcutTable() {
-  const columns = ["favorite", "keybinding", "command", "when", "environment"];
-  const { valueSets, updateValueSets } = useContext(MyAppContext);
+  const { editBtnClicked ,valueSets, updateValueSets } = useContext(MyAppContext);
+  const [columns, setColumns] = useState([]);
+
+  useEffect(() => {
+    if (editBtnClicked) {
+      setColumns(["remove", "keybinding", "command", "when", "environment"]);
+    } else {
+      setColumns(["favorite", "keybinding", "command", "when", "environment"]);
+    }
+  }, [editBtnClicked])
 
   // HACK:  updateValueSetsをexport defaultするファイルを作成する
   useEffect(() => {

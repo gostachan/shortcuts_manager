@@ -1,13 +1,25 @@
+"use client";
+
+import { useContext, useState } from 'react';
+
+import { MyAppContext } from '@/app/page';
 import FavoriteButton from './favoriteButton/favoriteButton';
+import GarbageButton from './garbageButton/garbageButton';
 import "./shortcutTableRecord.css";
 
+
 export default function ShortcutTableRecord({value, className}) {
+  const { editBtnClicked } = useContext(MyAppContext);
 
   return (
     <div className={"record " + className}>
       <div className="column column-1">
-        <FavoriteButton id={value.id}
-                        favoriteVal={value.favorite}/>
+        { editBtnClicked ? (
+          <GarbageButton id={value.id} />
+        ) : (
+          <FavoriteButton id={value.id}
+                          favoriteVal={value.favorite}/>
+        )}
       </div>
       <div className="column column-2">
         <div className='p-area'>

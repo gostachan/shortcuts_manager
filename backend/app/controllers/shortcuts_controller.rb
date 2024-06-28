@@ -48,23 +48,43 @@ class ShortcutsController < ApplicationController
 
 
     if user.id != shortcut.environment.user_id
-      render json: { error: "Unauthorized",
-                     message: "Invalid or missing authentication credentials." },
+      render json: { error: "unauthorized",
+                     message: "invalid or missing authentication credentials." },
              status: 403
       return
     end
 
     shortcut.favorite = shortcut_info[:favorite]
     if shortcut.save
-      render json: { message: "Shortcut infomation updated successfully.",
+      render json: { message: "shortcut infomation updated successfully.",
                      shortcut: shortcut },
              status: 200
     else
-      render json: { message: "Bad request." }, status: 400
+      render json: { message: "bad request." }, status: 400
     end
 
   end
 
+  def destroy
+    user = current_user
+    shortcut = Shortcut.find_by(id: params[:id])
+    if user.id != shortcut.environment.user_id
+      render json: { error: "unauthorized",
+                     message: "invalid or missing authentication credentials." },
+             status: 403
+      return
+    end
+
+    if shortcut.destroy
+      render json: { message: "Shortcut deleted successfully" },
+            status: 200
+    else
+      render json: { error: 'Faile to delete user',
+                     message: shortcut.errors.full_messages },
+             status: :unprocessable_entity
+    end
+
+  end
 
 
 

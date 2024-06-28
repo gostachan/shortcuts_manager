@@ -41,7 +41,7 @@ export default function EnvButtonForm({ values, className }) {
       <input className={`env-button-form 
                          ${className} 
                          ${isForcus ? "forcus" : "blur"}` }
-            autoComplete="off"
+             autoComplete="off"
              id={`env-${values.id}`}
              value={fixedEnvName}
              placeholder={isForcus ? "" : values.name}

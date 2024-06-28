@@ -7,7 +7,8 @@ export const Context = createContext();
 
 export default function ContextComponent({ children }) {
   const [shortcutValues, setShortcutValues] = useState([]);
-  const [editBtnClicked, toggleEditBtn] = useState(false);
+  const [environments,   setEnvironments]   = useState([]);
+  const [editBtnClicked, toggleEditBtn]     = useState(false);
 
   function renderShortcutTable() {
     apiClient.get(`/shortcuts`)
@@ -19,11 +20,28 @@ export default function ContextComponent({ children }) {
       });
   }
 
+  function renderEnvBtns() {
+    // HACK: ここでenvそのものをpushするよりenv.nameとenv.idを分けてpushした方が良いかも
+    apiClient.get(`/environments`)
+    .then(function (response) {
+      const tmp_envs = [];
+      for (const env of response.data.environments) {
+        tmp_envs.push(env);
+      }
+      setEnvironments(tmp_envs);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   return (
     <Context.Provider value={{ shortcutValues, 
-                               renderShortcutTable, 
+                               environments,
                                editBtnClicked, 
-                               toggleEditBtn }}>
+                               toggleEditBtn,
+                               renderShortcutTable,
+                               renderEnvBtns }}>
       {children}
     </Context.Provider>
   );

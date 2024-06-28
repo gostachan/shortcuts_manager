@@ -1,9 +1,14 @@
 "use client";
+
+import { MyAppContext } from "@/app/page";
+import { useContext, useState } from "react";
+
 import apiClient from "@/utils/apiClient";
 import "./envButtonForm.css";
-import { useState } from "react";
+
 
 export default function EnvButtonForm({ values, className }) {
+  const { updateValueSets } = useContext(MyAppContext); 
   const [fixedEnvName, setFixedEnvName] = useState("");
   const [isForcus, setIsForcus] = useState(false);
 
@@ -17,6 +22,7 @@ export default function EnvButtonForm({ values, className }) {
     const environment_info = { "environment_info": { "name": fixedEnvName } }
     apiClient.put(`/environments/${values.id}`, environment_info)
     .then((res) => {
+      updateValueSets();
       console.log(res);
     })
     .catch((error) => {

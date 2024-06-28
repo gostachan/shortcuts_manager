@@ -56,8 +56,6 @@ export default function Sidebar() {
 
   function handleToggleEdit() {
     if (editBtnClicked) {
-      console.log("hoge");
-      // SEARCH: 環境名を変更したカラムだけ更新できない?
       fetchEnvs();
     }
     toggleEditBtn(!editBtnClicked);
@@ -173,7 +171,7 @@ export default function Sidebar() {
             className={(createGroupClicked) ? "clicked" : "non-clicked"}/>
           <ToggleButton 
             onToggle={handleToggleEdit}
-            value={editBtnClicked ? "Save" : "Edit"}
+            value={editBtnClicked ? "Quit" : "Edit"}
             className={(editBtnClicked) ? "clicked" : "non-clicked"}/>
 
           <div className="logout">

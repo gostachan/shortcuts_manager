@@ -1,25 +1,45 @@
+"use client";
+
+import { useContext, useState } from 'react';
+
+import { MyAppContext } from '@/app/page';
 import FavoriteButton from './favoriteButton/favoriteButton';
+import GarbageButton from './garbageButton/garbageButton';
 import "./shortcutTableRecord.css";
 
+
 export default function ShortcutTableRecord({value, className}) {
+  const { editBtnClicked } = useContext(MyAppContext);
 
   return (
     <div className={"record " + className}>
-      <div className="column-1">
-        <FavoriteButton id={value.id}
-                        favoriteVal={value.favorite}/>
+      <div className="column column-1">
+        { editBtnClicked ? (
+          <GarbageButton id={value.id} />
+        ) : (
+          <FavoriteButton id={value.id}
+                          favoriteVal={value.favorite}/>
+        )}
       </div>
-      <div className="column-2">
-        <p>{value.command}</p>
+      <div className="column column-2">
+        <div className='p-area'>
+          <p>{value.keybinding}</p>
+        </div>
       </div>
-      <div className="column-3">
-        <p>{value.keybinding}</p>
+      <div className="column column-3">
+        <div className='p-area'>
+          <p>{value.command}</p>
+        </div>
       </div>
-      <div className="column-4">
-        <p>{value.when}</p>
+      <div className="column column-4">
+        <div className='p-area'>
+          <p>{value.when}</p>
+        </div>
       </div>
-      <div className="column-5">
-        <p>{value.environment}</p>
+      <div className="column column-5">
+        <div className='p-area'>
+          <p>{value.environment}</p>
+        </div>
       </div>
     </div>
 

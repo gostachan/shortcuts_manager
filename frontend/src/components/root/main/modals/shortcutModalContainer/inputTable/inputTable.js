@@ -8,7 +8,7 @@ import apiClient from "@/utils/apiClient";
 
 
 export default function InputTable({shortcutInfo, setShortcutInfo}) {
-  let columns = ["command", "keybinding", "when", "environment"]
+  let columns = ["keybinding", "command", "when", "environment"]
 
   const [options, setOptions] = useState([]);
   const [selectedEnvId, setSelectedEnvId] = useState(0);
@@ -66,12 +66,12 @@ export default function InputTable({shortcutInfo, setShortcutInfo}) {
       <div className="record record-last">
         <div className="column column-1">
           <input type="text" 
-                 name="command"
+                 name="keybinding"
                  onChange={onUpdate}/>
         </div>
         <div className="column column-2">
           <input type="text" 
-                 name="keybinding"
+                 name="command"
                  onChange={onUpdate}/>
         </div>
         <div className="column column-3">

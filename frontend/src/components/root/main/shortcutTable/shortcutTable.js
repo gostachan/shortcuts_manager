@@ -1,15 +1,24 @@
 "use client";
 
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { MyAppContext } from "@/app/page";
 import ShortcutTableRecord from "./shortcutTableRecord/shortcutTableRecord";
 import "./shortcutTable.css";
 
 export default function ShortcutTable() {
-  const columns = ["favorite", "command", "keybinding", "when", "environment"];
-  const { valueSets, updateValueSets } = useContext(MyAppContext);
+  const { editBtnClicked ,valueSets, updateValueSets } = useContext(MyAppContext);
+  const [columns, setColumns] = useState([]);
 
+  useEffect(() => {
+    if (editBtnClicked) {
+      setColumns(["remove", "keybinding", "command", "when", "environment"]);
+    } else {
+      setColumns(["favorite", "keybinding", "command", "when", "environment"]);
+    }
+  }, [editBtnClicked])
+
+  // HACK:  updateValueSetsをexport defaultするファイルを作成する
   useEffect(() => {
     updateValueSets();
   }, []);
@@ -20,7 +29,7 @@ export default function ShortcutTable() {
         {columns.map((column, index) => {
           return (
             <React.Fragment key={index}>
-              <div className={`column-${index + 1}`}>
+              <div className={`column column-${index + 1}`}>
                 <h5>{column}</h5>
               </div>
             </React.Fragment>

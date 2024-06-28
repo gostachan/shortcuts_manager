@@ -11,13 +11,14 @@ import "./shortcutModalContainer.css";
 
 
 export default function ShortcutModalContainer({closeModal}) {
-  const { valueSets ,updateValueSets } = useContext(MyAppContext);
+  const { updateValueSets } = useContext(MyAppContext);
   const [shortcutInfo, setShortcutInfo] = useState({ command:        "",
                                      keybinding:     "",
                                      when:           "",
                                      environment_id: 0 });
 
   function handleClick() {
+
     const shortcut_info = { "shortcut_info": {
       ...shortcutInfo
     }}
@@ -26,13 +27,12 @@ export default function ShortcutModalContainer({closeModal}) {
       .then(function (response) {
         if (response.status == 201) {
           closeModal();
+          updateValueSets();
         }
       })
       .catch(function (error) {
         console.log(error);
       })
-
-      updateValueSets();
   }
 
   return (

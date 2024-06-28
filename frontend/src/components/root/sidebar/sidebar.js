@@ -1,16 +1,19 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import "./sidebar.css";
 
+import { MyAppContext } from "@/app/page";
 import Modal from "../main/modals/modal";
 import ToggleButton from "../layout/toggleButton/toggleButton";
 import BasicButton from "../layout/basicButton/basicButton";
 import EnvButton from "../layout/envButton/envButton";
 import apiClient from "@/utils/apiClient";
+import EnvButtonForm from "../layout/envButtonForm/envButtonForm";
 
 export default function Sidebar() {
+  const { editBtnClicked, toggleEditBtn} = useContext(MyAppContext);
 
   const [environments, setEnvironments] = useState([]);
   const [envName, setEnvName] = useState("");
@@ -18,8 +21,10 @@ export default function Sidebar() {
   const [createGroupClicked, toggleGroupModal] = useState(false);
   const [isEnvFormVisible, setEnvForm] = useState(false);
 
-  function updateEnvironments() {
-    // FIXME: ここでenvそのものをpushするよりenv.nameとenv.idを分けてpushした方が良いかも
+  // HACK: 名前を変える サイドバーの環境ボタンを更新する仮数であるとわかるように
+  // HACK: 外部ファイルに記述してexport defaultする
+  function fetchEnvs() {
+    // HACK: ここでenvそのものをpushするよりenv.nameとenv.idを分けてpushした方が良いかも
     apiClient.get(`/environments`)
     .then(function (response) {
       const tmp_envs = [];
@@ -34,17 +39,28 @@ export default function Sidebar() {
   }
 
   useEffect(() => {
-    updateEnvironments();
+    fetchEnvs();
   }, []); 
 
   function handleToggleShortcut() {
     toggleShorcutModal(!createShortcutClicked);
     toggleGroupModal(false);
+    toggleEditBtn(false);
   }
 
   function handleToggleGroup() {
     toggleGroupModal(!createGroupClicked);
     toggleShorcutModal(false);
+    toggleEditBtn(false);
+  }
+
+  function handleToggleEdit() {
+    if (editBtnClicked) {
+      fetchEnvs();
+    }
+    toggleEditBtn(!editBtnClicked);
+    toggleShorcutModal(false);
+    toggleGroupModal(false);
   }
 
   function handleLogout() {
@@ -72,7 +88,7 @@ export default function Sidebar() {
         if (response.status == 201) {
           setEnvForm(false);
           setEnvName("");
-          updateEnvironments();
+          fetchEnvs();
         }
       })
       .catch(function (error) {
@@ -109,13 +125,24 @@ export default function Sidebar() {
 
               return (
                 <React.Fragment key={environment.id}>
-                  <EnvButton 
-                    value={environment.name}
-                    className={`${environment.name} ${classNameOption}`}/>
+
+                  {/* FIXME */}
+                  { editBtnClicked ? (
+                    <EnvButtonForm 
+                      fetchEnvs={fetchEnvs}
+                      values={environment}
+                      className={`${environment.name} ${classNameOption}-form`}/>
+                  ) : (
+                    <EnvButton 
+                      value={environment.name}
+                      className={`${environment.name} ${classNameOption}`}/>
+                  )}
+                  {/* --------- */}
                 </React.Fragment>
               );
             })}
           </div>
+
           <dev className={`env-form-area ${isEnvFormVisible ? "visible" : ""}`}>
             <form className="env-form"
                   onSubmit={handleSubmit}> 
@@ -129,22 +156,27 @@ export default function Sidebar() {
             </form>
           </dev>
           <BasicButton 
+            className={ isEnvFormVisible ? "" : "down-env-form-btn"}
             onclick={makeEnvFormVisible}
             value={isEnvFormVisible ? "-" : "+"}
           />
 
           <ToggleButton 
             onToggle={handleToggleShortcut} 
-            value={"ショートカットを作成"}
+            value={"Create Shortcut"}
             className={(createShortcutClicked) ? "clicked" : "non-clicked"}/>
           <ToggleButton 
             onToggle={handleToggleGroup}
-            value={"グループを作成"}
+            value={"Create Group"}
             className={(createGroupClicked) ? "clicked" : "non-clicked"}/>
+          <ToggleButton 
+            onToggle={handleToggleEdit}
+            value={editBtnClicked ? "Quit" : "Edit"}
+            className={(editBtnClicked) ? "clicked" : "non-clicked"}/>
 
           <div className="logout">
             <BasicButton 
-              value={"ログアウト"}
+              value={"Log out"}
               onclick={handleLogout}
             />
           </div>

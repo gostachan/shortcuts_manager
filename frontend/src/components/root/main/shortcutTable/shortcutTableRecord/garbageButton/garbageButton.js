@@ -3,13 +3,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
-import "./garbageButton.css"
+import "./garbageButton.scss"
 import apiClient from '@/utils/apiClient';
 import { useContext } from 'react';
-import { MyAppContext } from '@/app/page';
+import { Context } from '@/utils/context';
 
 export default function GarbageButton({id}) {
-  const { updateValueSets } = useContext(MyAppContext);
+  const { renderShortcutTable } = useContext(Context);
 
   function handleClick() {
     console.log("clicked");
@@ -17,7 +17,7 @@ export default function GarbageButton({id}) {
     .then(function(response) {
       console.log(response);
       if (response.status === 200) {
-        updateValueSets();
+        renderShortcutTable();
       }
     })
     .catch(function(error) {

@@ -2,16 +2,16 @@
 
 import { useContext, useState } from "react";
 
-import { MyAppContext } from "@/app/page";
+import { Context } from "@/utils/context";
 import apiClient from "@/utils/apiClient";
 import BasicButton from "@/components/root/layout/basicButton/basicButton";
 import InputTable from "./inputTable/inputTable";
 import Keyboard from "./keyboard/keyboard";
-import "./shortcutModalContainer.css";
+import "./shortcutModalContainer.scss";
 
 
 export default function ShortcutModalContainer({closeModal}) {
-  const { updateValueSets } = useContext(MyAppContext);
+  const { renderShortcutTable } = useContext(Context);
   const [shortcutInfo, setShortcutInfo] = useState({ command:        "",
                                      keybinding:     "",
                                      when:           "",
@@ -27,7 +27,7 @@ export default function ShortcutModalContainer({closeModal}) {
       .then(function (response) {
         if (response.status == 201) {
           closeModal();
-          updateValueSets();
+          renderShortcutTable();
         }
       })
       .catch(function (error) {

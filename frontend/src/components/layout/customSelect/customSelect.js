@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./customSelect.css"
+import "./customSelect.scss"
 
 export default function CustomSelect({ options, 
                                        placeholder,  

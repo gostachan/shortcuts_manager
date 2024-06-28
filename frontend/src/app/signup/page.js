@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 
-import "./page.css"
+import "./page.scss"
 import apiClient from "@/utils/apiClient";
 
 export default function Signup() {
@@ -47,6 +47,7 @@ export default function Signup() {
             <h1 className="form-title">sign up</h1>
             <div className="form-group">
               <input
+                autoComplete="off"
                 type=       "text"
                 id=         "email"
                 name=       "email"
@@ -58,6 +59,7 @@ export default function Signup() {
             </div>
             <div className="form-group">
               <input
+                autoComplete="off"
                 type=       "password"
                 id=         "password"
                 name=       "password"
@@ -69,6 +71,7 @@ export default function Signup() {
             </div>
             <div className="form-group">
               <input
+                autoComplete="off"
                 type=       "password"
                 id=         "password-confirmation"
                 name=       "passwordConfirmation"

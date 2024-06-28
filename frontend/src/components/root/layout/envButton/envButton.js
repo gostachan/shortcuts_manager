@@ -1,5 +1,5 @@
 "use client";
-import "./envButton.css";
+import "./envButton.scss";
 import { useState } from "react";
 
 export default function EnvButton({value, className}) {
@@ -9,6 +9,7 @@ export default function EnvButton({value, className}) {
     setClicked(!clicked);
   }
 
+  // HACK: value が last や first だと角が曲がる
   return (
     <button className={`env-button ${clicked ? "env-on" : "env-off"} ${className}`}
             onClick={toggleClicked}>

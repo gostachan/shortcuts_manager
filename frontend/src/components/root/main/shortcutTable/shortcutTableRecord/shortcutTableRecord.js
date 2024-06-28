@@ -1,15 +1,16 @@
 "use client";
 
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 
-import { MyAppContext } from '@/app/page';
+import { Context } from '@/utils/context';
 import FavoriteButton from './favoriteButton/favoriteButton';
 import GarbageButton from './garbageButton/garbageButton';
-import "./shortcutTableRecord.css";
+import "./shortcutTableRecord.scss";
 
 
 export default function ShortcutTableRecord({value, className}) {
-  const { editBtnClicked } = useContext(MyAppContext);
+  const { editBtnClicked } = useContext(Context);
+
 
   return (
     <div className={"record " + className}>

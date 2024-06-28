@@ -1,4 +1,4 @@
-import "./modal.css"
+import "./modal.scss"
 import ShortcutModalContainer from "./shortcutModalContainer/shortcutModalContainer";
 import GroupModalContainer from "./groupModalContainer/groupModal";
 

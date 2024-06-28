@@ -1,4 +1,4 @@
-import "./groupModalContainer.css"
+import "./groupModalContainer.scss"
 
 export default function GroupModalContainer() {
 

@@ -2,12 +2,13 @@
 
 import React, { useContext, useEffect, useState } from "react";
 
-import { MyAppContext } from "@/app/page";
 import ShortcutTableRecord from "./shortcutTableRecord/shortcutTableRecord";
-import "./shortcutTable.css";
+import "./shortcutTable.scss";
+import { Context } from "@/utils/context";
 
 export default function ShortcutTable() {
-  const { editBtnClicked ,valueSets, updateValueSets } = useContext(MyAppContext);
+  // 下の行に削除すべき項目あり
+  const { editBtnClicked ,shortcutValues, renderShortcutTable } = useContext(Context);
   const [columns, setColumns] = useState([]);
 
   useEffect(() => {
@@ -18,9 +19,8 @@ export default function ShortcutTable() {
     }
   }, [editBtnClicked])
 
-  // HACK:  updateValueSetsをexport defaultするファイルを作成する
   useEffect(() => {
-    updateValueSets();
+    renderShortcutTable();
   }, []);
 
   return (
@@ -36,11 +36,11 @@ export default function ShortcutTable() {
           );
         })}
       </div>
-      {valueSets.map((valueSet, index) => {
+      {shortcutValues.map((valueSet, index) => {
         return (
           <React.Fragment key={valueSet.id}>
             <ShortcutTableRecord value={valueSet}
-                                 className={((index === valueSets.length - 1) ? "record-last" : "")} />
+                                 className={((index === shortcutValues.length - 1) ? "record-last" : "")} />
           </React.Fragment>
         );
       })}
